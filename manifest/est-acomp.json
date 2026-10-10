@@ -1,0 +1,30 @@
+[
+  { "title": "Estudante · Atividades", "path": "estudante/atividades.html",
+    "area": "Estudante", "flow": "Devolutiva corrigida",
+    "states": [
+      { "label": "Todas", "query": "" },
+      { "label": "Filtro: Linguagens", "query": "?area=Linguagens" },
+      { "label": "Filtro: Corrigidas", "query": "?status=corrigido" },
+      { "label": "Busca sem resultado", "query": "?busca=zzz" }
+    ],
+    "figma": ["4166:99560", "4166:99666"] },
+  { "title": "Planejar estudos · Atividades", "path": "estudante/planejar-estudos.html",
+    "area": "Estudante", "flow": "Planejar estudos",
+    "states": [
+      { "label": "Todas", "query": "" },
+      { "label": "Filtro: Corrigido", "query": "?status=corrigido" }
+    ],
+    "figma": ["4157:65292", "4157:65746"] },
+  { "title": "Devolutiva corrigida", "path": "estudante/devolutiva.html",
+    "area": "Estudante", "flow": "Devolutiva corrigida",
+    "states": [],
+    "figma": ["4166:99774", "4166:99877"] },
+  { "title": "Meu boletim", "path": "estudante/boletim.html",
+    "area": "Estudante", "flow": "Acompanhar desempenho",
+    "states": [
+      { "label": "C1 · completa", "query": "?competencia=c1" },
+      { "label": "C2 · em processo", "query": "?competencia=c2" },
+      { "label": "C4 · completa", "query": "?competencia=c4" }
+    ],
+    "figma": ["4166:99981", "4166:100136"] }
+]

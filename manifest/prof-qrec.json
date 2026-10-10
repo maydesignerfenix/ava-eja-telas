@@ -1,0 +1,9 @@
+[{ "title": "Criar questão · Acessibilidade, fonte e referência",
+   "path": "professor/questao-recursos.html",
+   "area": "Professor", "flow": "Construir a base para atividades",
+   "states": [
+     { "label": "Acessibilidade e fonte vazia", "query": "?state=vazio" },
+     { "label": "ENEM e adicionar referência", "query": "?state=enem" },
+     { "label": "ENEM e referência preenchida", "query": "?state=referencia-preenchida" }
+   ],
+   "figma": ["4012:10048", "4167:91903", "4012:10393", "4167:92300", "4012:10739", "4167:92708"] }]

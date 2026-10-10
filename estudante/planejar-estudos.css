@@ -1,0 +1,95 @@
+/* Estudante · Planejar estudos · Atividades — Figma 4157:65292 (desktop) / 4157:65746 (mobile)
+   This frame uses the older class layout (32px title, divider, 48px tabs). */
+
+:root {
+  --plan-btn-disabled-bg: #dedede;
+  --plan-btn-disabled-fg: #666666;
+}
+
+.plan-page { padding-bottom: 102px; }
+.plan-page .class-header { margin-top: 0; }
+.plan-page .class-header__title { font-size: 32px; line-height: 44px; }
+.plan-page .class-header__actions { gap: 16px; }
+.plan-divider { margin: 0 0 -1px; }
+.plan-page .plan-tabs .tab { line-height: 48px; padding-bottom: 0; }
+
+/* Head + global toolbar */
+.plan { display: flex; flex-direction: column; }
+.plan__head { padding-top: 24px; display: flex; flex-direction: column; gap: 8px; }
+.plan__head h1 { font-weight: 700; font-size: 28px; line-height: 44px; color: var(--sesi-dark); }
+.plan__toolbar { display: flex; align-items: center; gap: 24px; }
+.plan__total { flex: 0 1 355px; font-weight: 700; font-size: 18px; line-height: 44px; color: var(--text-strong); }
+.plan__search { flex: 1 1 555px; }
+.plan__filter { flex: none; width: 182px; }
+
+.sort-select { position: relative; }
+.sort-select select {
+  appearance: none; width: 100%; height: 44px; padding: 9.5px 45.5px 9.5px 13.5px;
+  border: 1.5px solid var(--border-select); border-radius: var(--radius-sm); background: #fff;
+  font-size: 16px; line-height: 1.5; color: var(--text-strong);
+}
+.sort-select select:has(option[value=""]:checked) { color: var(--text-lightest); }
+.sort-select img { position: absolute; right: 13.5px; top: 10px; pointer-events: none; }
+
+/* List toolbar */
+.plan__list-area { margin-top: 48px; }
+.plan__list-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.plan__count { flex: 0 1 388px; font-weight: 700; font-size: 18px; line-height: 44px; color: var(--text-strong); }
+.plan__list-search { flex: 0 1 596px; }
+
+/* Rows */
+.plan-row { display: flex; align-items: center; gap: 16px; padding: 16px; box-shadow: inset 0 -1px 0 var(--border-row); background: #fff; }
+.plan-row__main { flex: 1 1 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; row-gap: 16px; }
+.plan-row__title { flex: none; width: 380px; height: 54px; display: flex; align-items: center; min-width: 0; font-weight: 500; font-size: 16px; line-height: normal; color: var(--text-strong); }
+.plan-row__title span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.plan-row__col { flex: none; width: 140px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; font-size: 14px; line-height: normal; white-space: nowrap; }
+.plan-row__col--start { gap: 2px; }
+.plan-row__label { font-weight: 600; color: var(--text-lightest); }
+.plan-row__date { color: var(--text-strong); text-transform: uppercase; }
+.plan-row__duration { flex: none; width: 64px; display: flex; }
+.plan-row .badge { font-size: 14px; }
+
+.plan-row__actions { flex: none; width: 204px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.plan-row__actions--single { gap: 10px; }
+.plan-row__actions .btn { height: 40px; padding: 0 16px; }
+.plan-row__actions .btn--wide { width: 204px; }
+.plan-row__actions .btn--std { width: 174px; }
+.plan-row__actions .btn--dep { width: 110px; padding: 0 4px; }
+.plan-row__actions .btn--start { width: 67px; padding: 0 4px; }
+.btn--disabled, .btn--disabled:hover { background: var(--plan-btn-disabled-bg); border-color: var(--plan-btn-disabled-bg); color: var(--plan-btn-disabled-fg); cursor: not-allowed; }
+.plan-info { position: relative; flex: none; display: flex; width: 20px; height: 20px; border-radius: 50%; }
+.plan-info:hover::after, .plan-info:focus-visible::after {
+  content: attr(data-tip); position: absolute; right: 0; bottom: calc(100% + 8px); z-index: 2; width: 220px; padding: 8px 12px;
+  border-radius: var(--radius-sm); background: var(--text-strong); color: #fff; font-size: 12px; line-height: 1.4; white-space: normal;
+}
+
+.empty-state { padding: 32px 0; text-align: center; }
+.plan-pagination { margin-top: 32px; padding-bottom: 24px; }
+
+.plan-filter-dialog { max-width: min(420px, 100% - 32px); }
+.plan-filter-dialog__body { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
+
+@media (max-width: 1023.98px) {
+  .plan-page { padding-bottom: 48px; }
+  .plan-page .class-header__title { font-size: 28px; line-height: 1.35; }
+  .plan-page .class-header__actions { gap: 8px; }
+  .plan-page .class-header { gap: 16px; }
+  .plan__head { gap: 24px; }
+  .plan__toolbar { flex-wrap: wrap; gap: 16px; }
+  .plan__total { flex: 1 1 100%; line-height: 1.4; }
+  .plan__search { flex: 1 1 0; min-width: 0; }
+  .plan__filter { flex: 1 1 0; width: auto; }
+  .sort-select { flex: 1 1 100%; }
+
+  .plan__list-area { margin-top: 8px; }
+  .plan-row { flex-direction: column; align-items: stretch; padding: 16px 0; }
+  .plan-row__main { display: grid; grid-template-columns: 1fr 1fr auto; row-gap: 12px; column-gap: 12px; }
+  .plan-row__title { grid-column: 1 / -1; width: auto; height: auto; }
+  .plan-row__title span { white-space: normal; }
+  .plan-row__col--status { grid-column: 1 / 3; grid-row: 2; }
+  .plan-row__duration { grid-column: 3; grid-row: 2; width: auto; justify-content: flex-end; }
+  .plan-row__col { width: auto; }
+  .plan-row__actions { width: 100%; justify-content: stretch; gap: 8px; }
+  .plan-row__actions .btn { flex: 1 1 0; width: auto; }
+  .plan-pagination { align-items: center; }
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Correção da atividade · Anos Finais - AF · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="est-acomp.css" />
+  <link rel="stylesheet" href="devolutiva.css" />
+</head>
+<body data-role="estudante">
+  <div data-chrome="header"></div>
+
+  <main class="container est-page">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Turmas</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current"><a href="atividades.html">Anos Finais - AF</a></li>
+        <li class="breadcrumb__trail"><span aria-hidden="true">›  </span><a href="atividades.html">Atividades</a><span aria-hidden="true">  ›  </span><span aria-current="page">Correção</span></li>
+      </ol>
+    </nav>
+
+    <section class="class-header" aria-label="Turma">
+      <div class="class-header__titles">
+        <p class="class-header__title">Anos Finais - AF</p>
+        <p class="class-header__subtitle">EJA</p>
+      </div>
+      <div class="class-header__actions">
+        <a class="btn btn--outline-sm" href="boletim.html">Relatórios</a>
+        <button class="btn btn--outline-sm" type="button">Arquivos</button>
+        <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+      </div>
+    </section>
+
+    <a class="back-link" href="atividades.html">
+      <span class="back-link__icon" aria-hidden="true"><img src="assets/est-acomp/voltar.svg" width="20.0854" height="19.8" alt="" /></span>
+      Voltar para Atividades
+    </a>
+
+    <div class="est-heading">
+      <div class="est-heading__text">
+        <h1>Correção da atividade</h1>
+        <p class="est-lead">Confira suas respostas, a nota e as orientações para continuar aprendendo.</p>
+      </div>
+    </div>
+
+    <section class="result-summary" aria-labelledby="activity-title">
+      <div class="result-summary__id">
+        <span class="type-tile only-desktop" aria-hidden="true"><img src="assets/est-acomp/q-article.svg" width="20" height="20" alt="" /></span>
+        <div class="result-summary__info">
+          <p class="est-small">Atividade online · Linguagens · C1</p>
+          <h2 class="result-summary__title" id="activity-title">Textos, mídias e tecnologia digitais</h2>
+          <span class="badge badge--sm badge--corrigido">Corrigido</span>
+          <p class="est-small">Enviada em 02/10/26 às 19:42 · Tentativa 1/3</p>
+          <p class="est-small">Corrigida em 05/10/26 às 10:20</p>
+        </div>
+      </div>
+      <div class="grade-box" aria-label="Nota da atividade: 8,5 de 10,0 pontos">
+        <p class="grade-box__label">Nota da atividade</p>
+        <p class="grade-box__value">8,5</p>
+        <p class="est-small">de 10,0 pontos</p>
+        <p class="grade-box__label">3 questões corrigidas</p>
+      </div>
+    </section>
+
+    <aside class="notice" aria-label="Orientação">
+      <img class="notice__icon" src="assets/est-acomp/info.svg" width="20" height="20" alt="" />
+      <div class="notice__body">
+        <p class="notice__title">Nota disponível no seu boletim</p>
+        <p class="notice__text">Esta atividade compõe a avaliação online de C1. Você pode consultar a composição da sua nota em Relatórios › Meu boletim.</p>
+      </div>
+    </aside>
+
+    <section class="feedback" aria-labelledby="feedback-title">
+      <h2 class="est-h2" id="feedback-title">Devolutiva do professor</h2>
+      <p class="feedback__text">Você demonstrou bom entendimento sobre o uso responsável das mídias digitais. Continue verificando as fontes e protegendo seus dados. Revise os cuidados com a data das publicações e a autenticação em duas etapas para ampliar suas respostas.</p>
+    </section>
+
+    <section class="answers" aria-labelledby="answers-title">
+      <h2 class="est-h2" id="answers-title">Suas respostas e correções</h2>
+      <p class="est-small">Somente leitura · As respostas abaixo são as que você enviou.</p>
+      <ol class="answers__list" id="answers-list"></ol>
+    </section>
+
+    <div class="total-row">
+      <p class="total-row__label">Total da atividade</p>
+      <p class="total-row__value"><span class="visually-hidden">Pontuação total: </span>8,5 / 10,0</p>
+    </div>
+
+    <div class="est-actions">
+      <a class="btn btn--outline-sm" href="atividades.html">VOLTAR PARA ATIVIDADES</a>
+      <a class="btn btn--primary" href="boletim.html">VER MEU BOLETIM</a>
+    </div>
+
+    <p class="est-small">Dados demonstrativos · aluno001@teste.com</p>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="devolutiva.js"></script>
+</body>
+</html>

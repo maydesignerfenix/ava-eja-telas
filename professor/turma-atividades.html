@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atividades agendadas · Anos Finais - AF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="turma-atividades.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="page">
+
+    <div class="container">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="Você está em">
+        <ol>
+          <li>
+            <a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a>
+          </li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li><a href="#">Turmas</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__parent"><a href="#">Anos Finais - AF</a></li>
+          <li class="breadcrumb__sep only-desktop" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__current only-desktop" aria-current="page">Atividades agendadas</li>
+        </ol>
+      </nav>
+
+      <!-- Class header -->
+      <section class="class-header" aria-labelledby="class-title">
+        <div class="class-header__titles">
+          <p id="class-title" class="class-header__title">Anos Finais - AF</p>
+          <p class="class-header__subtitle">EJA</p>
+        </div>
+        <div class="class-header__actions">
+          <button class="btn btn--outline-sm btn--icon" type="button" aria-label="Notificações da turma">
+            <img src="../shared/assets/btn-notifications.svg" width="20" height="20" alt="" />
+          </button>
+          <button class="btn btn--outline-sm" type="button">Arquivos</button>
+          <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+          <button class="btn btn--outline-sm btn--icon" type="button" aria-label="Excluir turma">
+            <img src="../shared/assets/btn-delete.svg" width="20" height="20" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- Banner (desktop only) -->
+      <div class="banner" aria-hidden="true">
+        <div class="banner__circle">
+          <img class="banner__icon" src="../shared/assets/banner-eja.svg" width="346.122" height="335.864" alt="" />
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <nav class="tabs" aria-label="Seções da turma">
+        <a class="tab" href="#">Conteúdos</a>
+        <a class="tab" href="#">Mural</a>
+        <a class="tab is-active" href="#" aria-current="page">Atividades</a>
+      </nav>
+
+      <!-- Activities -->
+      <section class="activities" aria-labelledby="activities-title">
+        <div class="page-title">
+          <div class="page-title__text">
+            <h1 id="activities-title">Atividades agendadas de Anos Finais - AF</h1>
+            <p>Crie e gerencie todas as atividades da turma</p>
+          </div>
+          <button class="btn btn--primary" type="button">AGENDAR ATIVIDADE</button>
+        </div>
+
+        <div class="list-area">
+          <div class="toolbar">
+            <h2 class="toolbar__count" id="activities-count" aria-live="polite">340 Atividades agendadas na turma</h2>
+            <div class="toolbar__controls">
+              <label class="search">
+                <span class="visually-hidden">Buscar atividades</span>
+                <img class="search__icon" src="../shared/assets/search.svg" width="18" height="18" alt="" />
+                <input id="search" type="search" placeholder="buscar" autocomplete="off" />
+              </label>
+              <button class="btn btn--outline-md" type="button">
+                <img src="../shared/assets/filter-alt.svg" width="31.2" height="31.2" alt="" />
+                Filtrar
+              </button>
+            </div>
+            <label class="sort-select only-mobile">
+              <span class="visually-hidden">Ordenação</span>
+              <select id="sort-select">
+                <option value="" selected>Ordenação</option>
+                <option value="title:asc">Atividade (A–Z)</option>
+                <option value="title:desc">Atividade (Z–A)</option>
+                <option value="start:asc">Início (mais antigo)</option>
+                <option value="start:desc">Início (mais recente)</option>
+                <option value="end:asc">Término (mais antigo)</option>
+                <option value="end:desc">Término (mais recente)</option>
+              </select>
+              <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+            </label>
+          </div>
+
+          <div class="table" role="region" aria-label="Lista de atividades agendadas">
+            <div class="table__head only-desktop">
+              <span class="col-spacer"></span>
+              <button class="th th--title" type="button" data-sort="title">ATIVIDADES AGENDADAS <span class="sort-icon" aria-hidden="true"><img src="../shared/assets/sort-up.svg" width="24" height="24" alt="" /><img src="../shared/assets/sort-down.svg" width="24" height="24" alt="" /></span></button>
+              <button class="th th--date" type="button" data-sort="start">INICIA EM <span class="sort-icon" aria-hidden="true"><img src="../shared/assets/sort-up.svg" width="24" height="24" alt="" /><img src="../shared/assets/sort-down.svg" width="24" height="24" alt="" /></span></button>
+              <button class="th th--date" type="button" data-sort="end">TERMINA EM <span class="sort-icon" aria-hidden="true"><img src="../shared/assets/sort-up.svg" width="24" height="24" alt="" /><img src="../shared/assets/sort-down.svg" width="24" height="24" alt="" /></span></button>
+              <span class="th th--status">STATUS</span>
+              <span class="th th--progress">PARA CORRIGIR</span>
+              <span class="th th--actions">AÇÕES</span>
+            </div>
+            <ul class="activity-list" id="activity-list"></ul>
+            <p class="empty-state" id="empty-state" hidden>Nenhuma atividade encontrada.</p>
+          </div>
+
+          <div class="pagination only-desktop">
+            <label class="page-size">
+              <span class="visually-hidden">Itens por página</span>
+              <select>
+                <option selected>12</option>
+                <option>24</option>
+                <option>48</option>
+              </select>
+              <img src="../shared/assets/select-arrow-drop-down.svg" width="24" height="24" alt="" />
+            </label>
+            <nav class="pages" aria-label="Paginação">
+              <button class="page-btn page-btn--icon" type="button" data-page="prev" aria-label="Página anterior"><img src="../shared/assets/chevron-left.svg" width="16" height="16" alt="" /></button>
+              <button class="page-btn is-active" type="button" data-page="1" aria-current="page">1</button>
+              <button class="page-btn" type="button" data-page="2">2</button>
+              <button class="page-btn" type="button" data-page="3">3</button>
+              <button class="page-btn page-btn--icon" type="button" data-page="next" aria-label="Próxima página"><img src="../shared/assets/chevron-right.svg" width="16" height="16" alt="" /></button>
+            </nav>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="turma-atividades.js"></script>
+</body>
+</html>

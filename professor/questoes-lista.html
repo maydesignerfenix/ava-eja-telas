@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Questões e Atividades · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="questoes-lista.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container qlist">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Questões e Atividades</li>
+      </ol>
+    </nav>
+
+    <h1 class="qlist__title">Questões e Atividades</h1>
+
+    <div class="tabs qlist__tabs" role="tablist" aria-label="Banco de questões e atividades">
+      <button class="tab" type="button" role="tab" id="tab-questoes" aria-controls="panel" data-tab="questoes">Questões</button>
+      <button class="tab" type="button" role="tab" id="tab-atividades" aria-controls="panel" data-tab="atividades">Atividades</button>
+    </div>
+
+    <section class="qlist__panel" id="panel" role="tabpanel" aria-labelledby="section-title">
+      <div class="page-title qlist__head">
+        <div class="page-title__text">
+          <h2 class="qlist__section-title" id="section-title">Questões</h2>
+          <p>Lista de todas as questões que podem se aplicar as atitivadades.</p>
+        </div>
+        <a class="btn btn--primary" id="create-btn" href="questoes-criar-etapa-1.html">CRIAR QUESTÃO</a>
+      </div>
+
+      <div class="qtoolbar">
+        <p class="qtoolbar__count" id="count" aria-live="polite">1000 questões</p>
+        <div class="qtoolbar__controls">
+          <label class="search qtoolbar__search">
+            <span class="visually-hidden" id="search-label">Buscar questões</span>
+            <img class="search__icon" src="../shared/assets/search.svg" width="18" height="18" alt="" />
+            <input id="search" type="search" placeholder="buscar" autocomplete="off" />
+          </label>
+          <button class="btn btn--outline-md qtoolbar__filter" id="filter-btn" type="button" aria-haspopup="dialog">
+            <img src="assets/prof-qlist/filter-alt.svg" width="32" height="32" alt="" />
+            <span>FILTRAR</span><span class="qtoolbar__filter-count" id="filter-count" hidden></span>
+          </button>
+        </div>
+      </div>
+
+      <label class="select qsort only-mobile">
+        <span class="visually-hidden">Ordenação</span>
+        <select id="sort-select">
+          <option value="" selected>Ordenação</option>
+          <option value="title:asc">Título (A–Z)</option>
+          <option value="title:desc">Título (Z–A)</option>
+          <option value="created:desc">Mais recentes</option>
+          <option value="created:asc">Mais antigas</option>
+        </select>
+        <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+      </label>
+
+      <div class="qtable" role="region" aria-labelledby="section-title">
+        <div class="qtable__head only-desktop">
+          <span class="qth qth--spacer" aria-hidden="true"></span>
+          <button class="qth qth--title" type="button" data-sort="title"><span id="th-title">QUESTÃO</span> <span class="sort-icon" aria-hidden="true"><img src="../shared/assets/sort-up.svg" width="24" height="24" alt="" /><img src="../shared/assets/sort-down.svg" width="24" height="24" alt="" /></span></button>
+          <span class="qth qth--skills">COMPETÊNCIA E HABILIDADES</span>
+          <span class="qth qth--third" id="th-third">NÍVEL DE DIFICULDADE</span>
+          <span class="qth qth--gap" aria-hidden="true"></span>
+          <span class="qth qth--actions">AÇÕES</span>
+        </div>
+        <ul class="qrows" id="rows"></ul>
+        <div class="qempty" id="empty" hidden>
+          <p class="qempty__title">Nenhum resultado encontrado.</p>
+          <p class="qempty__text">Revise a busca ou os filtros aplicados.</p>
+          <button class="btn btn--text" type="button" id="clear-all">LIMPAR BUSCA E FILTROS</button>
+        </div>
+      </div>
+
+      <div class="pagination qpagination" id="pagination">
+        <label class="page-size">
+          <span class="visually-hidden">Itens por página</span>
+          <select id="page-size">
+            <option>5</option>
+            <option selected>12</option>
+            <option>24</option>
+            <option>48</option>
+          </select>
+          <img src="../shared/assets/select-arrow-drop-down.svg" width="24" height="24" alt="" />
+        </label>
+        <nav class="pages" aria-label="Paginação" id="pages"></nav>
+      </div>
+    </section>
+  </main>
+
+  <!-- Filters -->
+  <dialog class="modal qfilter" id="filter-dialog" aria-labelledby="filter-title">
+    <form method="dialog" class="qfilter__form" id="filter-form">
+      <div class="qfilter__head">
+        <h2 id="filter-title" class="qfilter__title">Filtrar</h2>
+        <button class="qfilter__close" type="button" value="cancel" id="filter-close" aria-label="Fechar filtros">×</button>
+      </div>
+      <div class="qfilter__grid">
+        <div class="field">
+          <label class="field__label" for="f-area">Área do conhecimento</label>
+          <span class="select"><select id="f-area" name="area"><option value="">Todas</option></select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="f-comp">Competência</label>
+          <span class="select"><select id="f-comp" name="comp"><option value="">Todas</option></select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="f-skill">Habilidade</label>
+          <span class="select"><select id="f-skill" name="skill"><option value="">Todas</option></select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+        </div>
+        <div class="field" id="f-level-field">
+          <label class="field__label" for="f-level">Nível de dificuldade</label>
+          <span class="select"><select id="f-level" name="level"><option value="">Todos</option></select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+        </div>
+        <label class="qfilter__check"><input type="checkbox" id="f-fav" name="fav" /> Somente favoritas</label>
+        <label class="qfilter__check"><input type="checkbox" id="f-draft" name="draft" /> Somente rascunhos</label>
+      </div>
+      <div class="qfilter__actions">
+        <button class="btn btn--text" type="button" id="filter-clear">LIMPAR FILTROS</button>
+        <button class="btn btn--primary" type="submit" value="apply">APLICAR</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="questoes-lista.js"></script>
+</body>
+</html>

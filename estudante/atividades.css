@@ -1,0 +1,44 @@
+/* Estudante · Atividades — Figma 4166:99560 (desktop) / 4166:99666 (mobile) */
+
+/* Filters card */
+.filters { display: flex; flex-direction: column; gap: 12px; }
+.filters__fields { display: flex; gap: 16px; }
+.filters__fields .field { flex: 1 1 0; min-width: 0; }
+.filters .select select { cursor: pointer; }
+
+/* Summary + search */
+.activities { display: flex; flex-direction: column; gap: 24px; }
+.summary { display: flex; align-items: center; gap: 16px; }
+.summary__count { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.summary__search { flex: none; width: 480px; }
+.summary__search .search__icon { left: 12px; top: 13px; }
+.summary__search input { padding: 9.5px 12px 9.5px 38px; }
+.summary__search input::placeholder { color: var(--text-gray); }
+
+/* Activity rows */
+.student-activity { display: flex; align-items: center; gap: 24px; padding: 24px 16px; border-bottom: 1px solid var(--border-row); }
+.student-activity__id { flex: none; width: 340px; display: flex; flex-direction: column; gap: 6px; }
+.student-activity__title { font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--text-strong); }
+.student-activity__status { flex: none; width: 210px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.student-activity__status .badge { padding: 4px 10px; }
+.student-activity__date { font-size: 12px; line-height: 1.5; color: var(--text-gray); white-space: nowrap; }
+.student-activity__result { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.student-activity__action { flex: none; width: 190px; display: flex; }
+.student-activity__action .btn { flex: 1 1 0; }
+.student-activity__waiting { display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: var(--text-gray); white-space: nowrap; }
+.student-activity__waiting-icon { position: relative; flex: none; width: 16px; height: 16px; }
+.student-activity__waiting-icon img { position: absolute; top: -0.8px; left: -0.8px; }
+
+.empty-state { padding: 32px 0; text-align: center; }
+
+@media (max-width: 1023.98px) {
+  .filters__fields { flex-direction: column; }
+  .summary { flex-direction: column; align-items: stretch; }
+  .summary__search { width: 100%; }
+
+  .student-activity { flex-wrap: wrap; align-items: stretch; gap: 16px; padding: 24px 0; }
+  .student-activity__id, .student-activity__status, .student-activity__result, .student-activity__action { width: 100%; flex: none; }
+  .student-activity__status { flex-direction: row; align-items: center; justify-content: space-between; }
+  .student-activity__result { gap: 4px; }
+  .student-activity__waiting { white-space: normal; }
+}

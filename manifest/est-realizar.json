@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Realizar atividade",
+    "path": "estudante/realizar-atividade.html",
+    "area": "Estudante",
+    "flow": "Realizar atividade",
+    "states": [
+      { "label": "Início", "query": "?state=inicio" },
+      { "label": "Questão 1 sem resposta", "query": "?state=q1" },
+      { "label": "Questão 1 resposta B", "query": "?state=q1&resposta=B" },
+      { "label": "Questão 2 sem resposta", "query": "?state=q2" },
+      { "label": "Questão 2 resposta D", "query": "?state=q2&resposta=D" },
+      { "label": "Questão 3 sem resposta", "query": "?state=q3" },
+      { "label": "Questão 3 resposta A", "query": "?state=q3&resposta=A" },
+      { "label": "Revisar respostas", "query": "?state=revisar" },
+      { "label": "Finalizada", "query": "?state=finalizada" },
+      { "label": "Recursos de acessibilidade", "query": "?state=acessibilidade" }
+    ],
+    "figma": [
+      "4158:66836", "4158:66868", "4158:66900", "4158:66954", "4158:67008", "4158:67062",
+      "4158:67118", "4158:67229", "4158:67283", "4158:67337", "4158:67395",
+      "4158:67643", "4158:67660", "4158:67696", "4158:67732", "4158:67769", "4158:67806",
+      "4158:67843", "4158:67881", "4158:67961", "4158:67978", "4158:68017"
+    ]
+  }
+]

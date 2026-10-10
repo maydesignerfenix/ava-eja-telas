@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prévia da atividade · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="atividade-previa.css" />
+</head>
+<body data-role="professor" data-header="none" data-footer="none" class="previa-page">
+  <main class="previa" aria-labelledby="previa-title">
+    <header class="previa__head">
+      <h1 class="previa__title" id="previa-title">PRÉVIA DA ATIVIDADE</h1>
+      <a class="previa__close" id="previa-close" href="atividade-criar.html" aria-label="Fechar prévia"><img src="assets/prof-ativ/previa-fechar.svg" width="28" height="28" alt="" /></a>
+    </header>
+
+    <div class="previa__content">
+      <div class="previa__context">
+        <p class="previa__context-label">Atividade</p>
+        <p class="previa__context-name">Atividade de exemplo para prévia</p>
+      </div>
+
+      <!-- 1. Múltipla escolha -->
+      <section class="pq" aria-labelledby="pq1">
+        <div class="pq__head">
+          <h2 class="pq__type" id="pq1">1. Múltipla escolha</h2>
+          <p class="pq__text">Placa em um petshop: "Traga seu cão para banho e tosa e leve para casa um novo gatinho!"  Ao ler essa placa, é possível entender que, ao levar o cão para o serviço oferecido:</p>
+        </div>
+        <fieldset class="pq-alts">
+          <legend class="visually-hidden">Alternativas da questão 1</legend>
+          <label class="pq-alt"><input type="radio" name="q1" value="A" /><span class="pq-alt__letter" aria-hidden="true">A</span><span>ele entrará cão e sairá literalmente transformado em um gato</span></label>
+          <label class="pq-alt"><input type="radio" name="q1" value="B" /><span class="pq-alt__letter" aria-hidden="true">B</span><span>ocorrerá uma transformação física da espécie do animal</span></label>
+          <label class="pq-alt"><input type="radio" name="q1" value="C" /><span class="pq-alt__letter" aria-hidden="true">C</span><span>seu pelo ficará com uma aparência muito bem cuidada e atraente</span></label>
+          <label class="pq-alt"><input type="radio" name="q1" value="D" /><span class="pq-alt__letter" aria-hidden="true">D</span><span>o animal precisará passar por um processo veterinário completo</span></label>
+        </fieldset>
+      </section>
+
+      <!-- 2. Discursiva -->
+      <section class="pq" aria-labelledby="pq2">
+        <div class="pq__head">
+          <h2 class="pq__type" id="pq2">2. Discursiva</h2>
+          <p class="pq__text">Placa em um petshop: "Traga seu cão para banho e tosa e leve para casa um novo gatinho!"<br />Explique o sentido da expressão “novo gatinho” nesse anúncio e como ela ajuda a atrair os clientes.</p>
+        </div>
+        <p class="pq__hint">Escreva sua interpretação em um ou mais parágrafos.</p>
+        <div class="pq-answer">
+          <label class="pq-answer__label" for="ans-2">Sua resposta</label>
+          <textarea class="pq-answer__long" id="ans-2" placeholder="Digite sua resposta aqui."></textarea>
+        </div>
+      </section>
+
+      <!-- 3. Verdadeiro ou Falso -->
+      <section class="pq" aria-labelledby="pq3">
+        <div class="pq__head">
+          <h2 class="pq__type" id="pq3">3. Verdadeiro ou Falso</h2>
+          <p class="pq__text">Placa em um petshop: "Traga seu cão para banho e tosa e leve para casa um novo gatinho!"</p>
+        </div>
+        <p class="pq__hint">Leia as afirmações e selecione Verdadeiro ou Falso para cada uma.</p>
+        <div class="pq-vf" id="pq-vf"></div>
+      </section>
+
+      <!-- 4. Resposta curta -->
+      <section class="pq" aria-labelledby="pq4">
+        <div class="pq__head">
+          <h2 class="pq__type" id="pq4">4. Resposta curta</h2>
+          <p class="pq__text">Placa em um petshop: "Traga seu cão para banho e tosa e leve para casa um novo gatinho!"<br />Qual palavra da placa é usada para sugerir que o animal ficará bonito após o serviço?</p>
+        </div>
+        <p class="pq__hint">Responda com apenas uma palavra.</p>
+        <div class="pq-answer pq-answer--short">
+          <label class="pq-answer__label" for="ans-4">Sua resposta</label>
+          <input class="pq-answer__short" id="ans-4" type="text" placeholder="Digite sua resposta aqui." />
+        </div>
+      </section>
+
+      <!-- 5. Correlação -->
+      <section class="pq" aria-labelledby="pq5">
+        <div class="pq__head">
+          <h2 class="pq__type" id="pq5">5. Correlação</h2>
+          <p class="pq__text">Placa em um petshop: "Traga seu cão para banho e tosa e leve para casa um novo gatinho!"<br />Relacione cada conceito ao seu significado.</p>
+        </div>
+        <p class="pq__hint">Selecione a letra correspondente a cada conceito. Use cada significado uma vez.</p>
+        <div class="pq-match">
+          <div class="pq-match__col pq-match__col--concepts">
+            <h3 class="pq-match__title">Conceitos</h3>
+            <div class="pq-concept"><label for="m1">Sentido literal</label><span class="pq-select"><select id="m1"><option value="">Selecione</option><option>A</option><option>B</option><option>C</option></select><img src="assets/prof-ativ/chevron-down-12.svg" width="12" height="12" alt="" /></span></div>
+            <div class="pq-concept"><label for="m2">Sentido figurado</label><span class="pq-select"><select id="m2"><option value="">Selecione</option><option>A</option><option>B</option><option>C</option></select><img src="assets/prof-ativ/chevron-down-12.svg" width="12" height="12" alt="" /></span></div>
+            <div class="pq-concept"><label for="m3">Finalidade do anúncio</label><span class="pq-select"><select id="m3"><option value="">Selecione</option><option>A</option><option>B</option><option>C</option></select><img src="assets/prof-ativ/chevron-down-12.svg" width="12" height="12" alt="" /></span></div>
+          </div>
+          <div class="pq-match__col">
+            <h3 class="pq-match__title">Significados</h3>
+            <p class="pq-meaning"><b>A</b><span>Uso de uma expressão com significado diferente do habitual.</span></p>
+            <p class="pq-meaning"><b>B</b><span>Intenção de convencer o cliente a contratar o serviço.</span></p>
+            <p class="pq-meaning"><b>C</b><span>Significado direto de uma palavra ou expressão.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Ordenação -->
+      <section class="pq" aria-labelledby="pq6">
+        <div class="pq__head">
+          <h2 class="pq__type" id="pq6">6. Ordenação</h2>
+          <p class="pq__text">Um cliente leu a placa “Traga seu cão para banho e tosa e leve para casa um novo gatinho!” e decidiu usar o serviço. Organize as ações na sequência em que devem acontecer.</p>
+        </div>
+        <p class="pq__hint" id="pq6-hint">Arraste os itens ou use as setas para mudar a ordem.</p>
+        <ol class="pq-order" id="pq-order" aria-describedby="pq6-hint"></ol>
+        <p class="visually-hidden" id="pq-order-status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <button class="previa__a11y" type="button" aria-label="Recursos de acessibilidade"><img src="assets/prof-ativ/acessibilidade.svg" width="54" height="54" alt="" /></button>
+  </main>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="atividade-previa.js"></script>
+</body>
+</html>

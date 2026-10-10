@@ -1,0 +1,56 @@
+/* Professor · Avaliações 1.3.1 · Boletim – Visão da turma
+   Figma: 4139:38544 (desktop) / 4139:40362 (mobile) */
+
+.bol-list-summary { display: flex; align-items: center; justify-content: space-between; min-height: 43px; line-height: 1.2; color: var(--bol-muted); }
+.bol-list-summary p { font-size: 14px; }
+.bol-help { font-weight: 700; font-size: 12px; color: var(--bol-muted); }
+.bol-help:hover { color: var(--bol-green); }
+.bol-help-panel { margin-bottom: 12px; font-family: var(--font-inter); }
+.bol-help-panel[hidden] { display: none; }
+
+.grade-head, .grade-row { display: grid; grid-template-columns: 191px repeat(6, minmax(0, 1fr)) 74px 110px 133px; align-items: center; }
+.grade-head { min-height: 54px; border-bottom: 1px solid var(--bol-border-2); }
+.grade-head > div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.grade-head > div:first-child { align-items: flex-start; padding-left: 16px; }
+.grade-head__status { font-weight: 700; font-size: 11px; line-height: normal; text-decoration: underline; text-underline-position: from-font; }
+.grade-head__status--done { color: var(--bol-green); }
+.grade-head__status--pending { color: var(--bol-red-dark); }
+.grade-head__status:hover { color: var(--bol-ink); }
+.th-sort--process { color: var(--bol-amber); }
+.th-sort--process span { display: block; }
+.th-info { display: inline-flex; align-items: center; gap: 0; }
+.th-info__icon { font-size: 12px; line-height: 1.2; color: var(--bol-muted); cursor: help; }
+
+.grade-row { min-height: 43px; border-bottom: 1px solid var(--bol-row); }
+.grade-row:last-child { border-bottom: 0; }
+.grade-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; line-height: 1.2; white-space: nowrap; }
+.grade-cell__label { display: none; }
+.grade-cell__value { display: flex; flex-direction: column; align-items: center; }
+.grade-name { align-items: flex-start; padding-left: 16px; font-weight: 700; font-size: 14px; color: var(--bol-ink); }
+.grade { font-weight: 700; font-size: 16px; color: var(--bol-ink); }
+.grade--low { color: var(--bol-red); }
+.grade--none { color: var(--bol-muted); }
+.grade--cc { font-size: 12px; }
+.grade-sub { font-size: 11px; color: var(--bol-muted); }
+
+.bol-export { display: flex; justify-content: flex-end; padding-top: 16px; }
+.btn-export { height: 42px; padding: 0 18px; border: 1px solid var(--bol-green-bar); border-radius: 4px; background: #fff; font-family: var(--font-roboto); font-weight: 700; font-size: 15px; line-height: 1.2; color: var(--bol-green); }
+.btn-export:hover { background: var(--sesi-hover); }
+
+@media (max-width: 1023.98px) {
+  .bol-list-summary { margin-top: 12px; }
+  .grade-head { grid-template-columns: 1fr auto; min-height: 40px; padding: 0 16px; background: var(--surface-subtle); }
+  .grade-head > div { display: none; }
+  .grade-head > div:first-child, .grade-head > div:last-child { display: flex; padding: 0; }
+  .grade-head > div:last-child { align-items: flex-end; }
+  .grade-row { grid-template-columns: 1fr auto; align-items: center; padding: 16px; border-bottom: 1px solid var(--bol-border); }
+  .grade-row > .grade-cell { grid-column: 1 / -1; }
+  .grade-cell { flex-direction: row; justify-content: space-between; align-items: center; min-height: 22px; padding: 2px 0; }
+  .grade-cell__label { display: block; font-size: 12px; color: var(--bol-muted); }
+  .grade-row > .grade-name { grid-column: 1; grid-row: 1; padding: 0 0 10px; font-size: 14px; }
+  .grade-row > .grade-status { grid-column: 2; grid-row: 1; padding: 0 0 10px; }
+  .grade-status .grade-cell__label { display: none; }
+  .grade { font-size: 14px; }
+  .grade-sub { display: none; }
+  .grade-cell--sum .grade-cell__value, .grade-cell--process .grade-cell__value { flex-direction: row; gap: 4px; align-items: baseline; }
+}

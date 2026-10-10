@@ -1,0 +1,85 @@
+/* Professor · Turma · Atividades agendadas
+   Figma: 4148:58959 (desktop) / 4148:59584 (mobile) */
+
+.activities { margin-top: 24px; }
+.page-title { padding-bottom: 24px; }
+.list-area { margin-top: 32px; }
+@media (max-width: 1023.98px) {
+  .page-title { padding-bottom: 0; }
+  .list-area { margin-top: 38px; padding-bottom: 48px; }
+}
+
+/* Toolbar ----------------------------------------------------------------- */
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.toolbar__count { font-weight: 700; font-size: 18px; line-height: 44px; color: var(--text-strong); flex: 0 1 388px; }
+.toolbar__controls { display: flex; align-items: flex-start; gap: 12px; flex: 0 1 749px; min-width: 0; }
+.toolbar .search { flex: 1 1 555px; }
+.toolbar .btn--outline-md { width: 182px; flex: none; }
+
+.sort-select { position: relative; }
+.sort-select select {
+  appearance: none; width: 100%; height: 44px; padding: 9.5px 45.5px 9.5px 13.5px;
+  border: 1.5px solid var(--border-select); border-radius: var(--radius-sm); background: #fff;
+  font-size: 16px; line-height: 1.5; color: var(--text-strong);
+}
+.sort-select select:has(option[value=""]:checked) { color: var(--text-lightest); }
+.sort-select img { position: absolute; right: 13.5px; top: 10px; pointer-events: none; }
+
+@media (max-width: 1023.98px) {
+  .toolbar { flex-direction: column; align-items: stretch; gap: 24px; }
+  .toolbar__count { flex: none; }
+  .toolbar__controls { flex: none; align-items: center; }
+  .toolbar .search { flex: 1 1 0; }
+}
+
+/* Table header ------------------------------------------------------------ */
+.table { margin-top: 24px; }
+.table__head { display: flex; align-items: flex-start; gap: 10px; padding: 10px; background: #fff; border-bottom: 1px solid var(--border-head); }
+.col-spacer { flex: none; width: 50px; }
+.th { display: flex; align-items: center; justify-content: center; flex: none; font-weight: 600; font-size: 12px; line-height: 14px; color: var(--text-muted); white-space: nowrap; }
+.th--title { width: 410px; }
+.th--date { width: 139px; }
+.th--status { width: 154px; }
+.th--progress { width: 100px; }
+.th--actions { width: 79px; }
+button.th:hover { color: var(--text-strong); }
+.sort-icon { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 24px; height: 14px; }
+.sort-icon img:first-child { margin-bottom: -18px; }
+.th[aria-sort="ascending"] .sort-icon img:last-child,
+.th[aria-sort="descending"] .sort-icon img:first-child { opacity: 0.3; }
+
+/* Activity rows ----------------------------------------------------------- */
+.activity { display: flex; align-items: center; gap: 16px; padding: 24px 12px; background: #fff; border-bottom: 1px solid var(--border-row); }
+.activity__main { flex: 1 1 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 24px 27px; }
+.activity__info { flex: 0 1 390px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.activity__title { font-weight: 500; font-size: 18px; line-height: normal; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.activity__meta { display: flex; align-items: center; gap: 4px; min-height: 24px; font-weight: 500; font-size: 14px; line-height: 14px; color: var(--text-muted); }
+.activity__meta--draft { color: var(--text-lightest); }
+.activity__meta img { flex: none; }
+.activity__links { display: flex; align-items: center; gap: 8px; }
+.activity__schedules { display: flex; align-items: center; gap: 4px; font-weight: 700; font-size: 16px; line-height: normal; color: var(--sesi-pure); white-space: nowrap; }
+.activity__schedules:hover { text-decoration: underline; }
+.activity__tool { display: flex; }
+.activity__dates { flex: none; width: 280px; display: flex; justify-content: center; }
+.activity__date { flex: 0 1 128px; text-align: center; font-size: 14px; line-height: normal; color: var(--text-strong); white-space: nowrap; }
+.activity__status { flex: none; width: 140px; display: flex; justify-content: center; }
+.activity__progress { flex: none; width: 99px; display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.activity__progress-label { font-size: 14px; line-height: normal; color: var(--text-strong); white-space: nowrap; }
+.activity__actions { flex: none; display: flex; align-items: center; justify-content: flex-end; height: 67px; }
+.empty-state { padding: 48px 0; text-align: center; color: var(--text-lighter); font-size: 14px; }
+
+@media (max-width: 1023.98px) {
+  .activity { align-items: flex-start; }
+  .activity__main { gap: 24px; }
+  .activity__info { flex: 1 1 100%; gap: 12px; }
+  .activity__title { white-space: normal; overflow: visible; }
+  .activity__meta { min-height: 0; }
+  .activity__meta--draft { align-items: flex-start; min-height: 24px; }
+  .activity__dates { width: 256px; max-width: 100%; justify-content: flex-start; margin-left: -3px; }
+  .activity__status { width: auto; }
+  .activity__progress { width: 100%; max-width: 250px; }
+  /* Figma lets the 250px content column run under the actions hit area. */
+  .activity__actions { margin-left: -20px; }
+}
+
+.pagination { margin-top: 28px; }

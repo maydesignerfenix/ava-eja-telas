@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boletim · Lançar notas · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="aval-common.css" />
+  <link rel="stylesheet" href="aval-boletim.css" />
+  <link rel="stylesheet" href="aval-boletim-lancar-notas.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__parent"><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Boletim</li>
+      </ol>
+    </nav>
+
+    <div class="aval-heading">
+      <h1>Boletim</h1>
+    </div>
+
+    <section class="bol bol--lancar" aria-labelledby="bol-title">
+      <div class="bol__intro">
+        <h2 id="bol-title">Avaliações por turma</h2>
+        <p>Consulte e faça o lançamento das avaliações da turma por competência</p>
+      </div>
+
+      <div class="bol-filters" role="search" aria-label="Filtros da turma">
+        <p class="bol-filters__label">Filtros</p>
+        <label class="bol-select bol-select--unidade">
+          <span class="visually-hidden">Unidade</span>
+          <select id="f-unidade"><option>SESI Ipiranga</option><option>SESI Vila Leopoldina</option></select>
+          <img src="assets/prof-aval/chevron-down-12.svg" width="12" height="12" alt="" />
+        </label>
+        <label class="bol-select bol-select--turma">
+          <span class="visually-hidden">Turma</span>
+          <select id="f-turma"><option>9º Ano B — Manhã</option><option>9º Ano A — Manhã</option><option>8º Ano B — Tarde</option></select>
+          <img src="assets/prof-aval/chevron-down-12.svg" width="12" height="12" alt="" />
+        </label>
+        <label class="bol-select bol-select--area">
+          <span class="visually-hidden">Área do conhecimento</span>
+          <select id="f-area"><option>Linguagens</option><option>Matemática</option><option>Ciências da Natureza</option><option>Ciências Humanas</option></select>
+          <img src="assets/prof-aval/chevron-down-12.svg" width="12" height="12" alt="" />
+        </label>
+        <label class="search">
+          <span class="visually-hidden">Buscar estudantes</span>
+          <img class="search__icon" src="../shared/assets/search.svg" width="18" height="18" alt="" />
+          <input id="search" type="search" placeholder="buscar estudantes" autocomplete="off" />
+        </label>
+        <button class="btn btn--outline-md" id="f-apply" type="button">
+          <img src="../shared/assets/filter-alt.svg" width="31.2" height="31.2" alt="" />
+          Filtrar
+        </button>
+      </div>
+
+      <ul class="bol-kpis" aria-label="Indicadores da turma">
+        <li class="bol-kpi"><p class="bol-kpi__label">MÉDIA DA TURMA</p><p class="bol-kpi__value" id="kpi-media">41</p><p class="bol-kpi__detail" id="kpi-media-detail">1 de 10 com avaliação completa</p></li>
+        <li class="bol-kpi"><p class="bol-kpi__label">EM PROCESSO</p><p class="bol-kpi__value bol-kpi__value--warn" id="kpi-processo">1</p><p class="bol-kpi__detail">abaixo de 60</p></li>
+        <li class="bol-kpi"><p class="bol-kpi__label">FALTA LANÇAR</p><p class="bol-kpi__value" id="kpi-falta">14</p><p class="bol-kpi__detail">competências x estudantes</p></li>
+        <li class="bol-kpi"><p class="bol-kpi__label">COMPETÊNCIAS CERTIFICADAS</p><p class="bol-kpi__value" id="kpi-cc">3</p><p class="bol-kpi__detail">CC pelo RDS</p></li>
+      </ul>
+
+      <div class="bol-switch">
+        <nav class="seg" aria-label="Modo do boletim">
+          <a class="seg__tab" href="aval-boletim-turma.html">Visão da turma</a>
+          <a class="seg__tab" href="aval-boletim-lancar-notas.html" aria-current="page">Lançar notas</a>
+        </nav>
+        <p class="bol-weights">Online <strong>40%</strong> + Presencial <strong>40%</strong> + Participação <strong>20%</strong></p>
+      </div>
+
+      <div class="comp-picker" id="comp-picker" role="group" aria-label="Competência"></div>
+
+      <div class="comp-summary">
+        <p class="comp-summary__ctx">
+          <strong><span data-ctx-comp>C1</span> · <span data-ctx-area>Linguagens</span> · <span data-ctx-turma>9º Ano B — Manhã</span></strong>
+          <span id="comp-progress">9 de 9 lançadas · 1 com CC</span>
+        </p>
+        <label class="check">
+          <input type="checkbox" id="only-missing" />
+          <span>Só quem falta lançar</span>
+        </label>
+      </div>
+
+      <div class="mass" role="group" aria-labelledby="mass-title">
+        <div class="mass__select">
+          <p class="mass__title" id="mass-title">Preencher em massa <span title="Marque estudantes, escolha o campo e o valor e clique em Aplicar">ⓘ</span></p>
+          <span class="mass__sep" aria-hidden="true"></span>
+          <p class="mass__count" id="mass-count" aria-live="polite">nenhum estudante marcado</p>
+          <button class="mass__link" id="select-missing" type="button">Selecionar quem está sem nota</button>
+        </div>
+        <div class="mass__apply">
+          <label class="mass__lbl" for="mass-field">Campo</label>
+          <span class="mass__select-field">
+            <select id="mass-field">
+              <option value="participacao">Participação</option>
+              <option value="presencial">Presencial</option>
+              <option value="complementar">Em processo</option>
+            </select>
+            <img src="assets/prof-aval/chevron-down-12-muted.svg" width="12" height="12" alt="" />
+          </span>
+          <label class="mass__lbl" for="mass-value">Valor</label>
+          <span class="mass__value">
+            <input id="mass-value" type="text" inputmode="numeric" placeholder="0 a 20" autocomplete="off" aria-describedby="mass-suffix" />
+            <span id="mass-suffix">de 20%</span>
+          </span>
+          <button class="mass__btn" id="mass-apply" type="button" disabled>Aplicar</button>
+        </div>
+      </div>
+
+      <div class="bol-table ln-table" id="ln-table">
+        <div class="ln-mobile-head only-mobile">
+          <p class="ln-mobile-head__title">Notas por estudante · <span data-ctx-comp>C1</span></p>
+          <p>Toque nos campos para lançar as notas.</p>
+          <p>Online: automática · Presencial: 0–40 · Participação: 0–20</p>
+        </div>
+        <div class="ln-scroll">
+          <div class="ln-head" role="row">
+            <div class="ln-head__id">
+              <input type="checkbox" id="select-all" aria-label="Marcar todos os estudantes" />
+              <button class="th-sort" type="button" data-sort="name">ESTUDANTE <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button>
+            </div>
+            <div class="ln-head__col"><button class="th-sort" type="button" data-sort="online">ONLINE <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button><span>até 40% · automática</span></div>
+            <div class="ln-head__col"><button class="th-sort" type="button" data-sort="presencial">PRESENCIAL <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button><span>até 40%</span></div>
+            <div class="ln-head__col"><button class="th-sort" type="button" data-sort="participacao">PARTICIPAÇÃO <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button><span>até 20%</span></div>
+            <div class="ln-head__col ln-head__col--proc"><button class="th-sort" type="button" data-sort="complementar">EM PROCESSO <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button><span>complementar ·</span><span class="ln-head__limit"><span>até</span><span title="Nota complementar só para quem ficou abaixo de 60">20ⓘ</span></span></div>
+            <div class="ln-head__col ln-head__col--final"><button class="th-sort" type="button" data-sort="final">NOTA <span data-ctx-comp>C1</span> <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button></div>
+            <div class="ln-head__col ln-head__col--sit"><button class="th-sort" type="button" data-sort="status">SITUAÇÃO <img src="assets/prof-aval/chevrons-up-down.svg" width="9" height="12" alt="" /></button></div>
+          </div>
+          <div id="ln-body"></div>
+          <p class="bol-empty" id="empty" hidden>Nenhum estudante encontrado.</p>
+        </div>
+      </div>
+
+      <div class="ln-footer">
+        <p class="ln-status">
+          <strong id="save-status" aria-live="polite">Tudo salvo</strong>
+          <span class="only-desktop">·</span>
+          <kbd class="only-desktop">Enter</kbd>
+          <span class="only-desktop">próximo estudante</span>
+        </p>
+        <div class="ln-actions">
+          <button class="ln-btn ln-btn--save" id="save" type="button" disabled>SALVAR</button>
+          <button class="ln-btn ln-btn--next" id="next-comp" type="button">Próxima: C2 ›</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="aval-boletim-data.js"></script>
+  <script src="aval-boletim-lancar-notas.js"></script>
+</body>
+</html>

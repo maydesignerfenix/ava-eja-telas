@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Criar questão · Etapa 2 · Conteúdo da questão",
+    "path": "professor/questao-criar-etapa-2.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [
+      { "label": "Tipo não selecionado", "query": "" },
+      { "label": "Múltipla escolha", "query": "?tipo=multipla-escolha" },
+      { "label": "Discursiva", "query": "?tipo=discursiva" },
+      { "label": "Resposta curta", "query": "?tipo=resposta-curta" },
+      { "label": "Verdadeiro ou Falso", "query": "?tipo=verdadeiro-falso" },
+      { "label": "Ordenação", "query": "?tipo=ordenacao" },
+      { "label": "Correlação", "query": "?tipo=correlacao" },
+      { "label": "Palavras cruzadas", "query": "?tipo=palavras-cruzadas" }
+    ],
+    "figma": [
+      "4139:47753", "4167:88697",
+      "4139:46120", "4167:88989",
+      "4139:48511", "4167:89329",
+      "4139:49354", "4167:89965",
+      "4139:48887", "4167:89621",
+      "4139:45199", "4167:90904",
+      "4139:45395", "4167:90257",
+      "4139:45825", "4167:91363"
+    ]
+  }
+]

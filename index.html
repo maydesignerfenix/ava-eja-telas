@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AVA EJA · Telas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/base.css" />
+  <style>
+    .hub { padding: 32px 0 64px; }
+    .hub h1 { font-weight: 700; font-size: 28px; line-height: 44px; color: var(--sesi-dark); }
+    .hub__intro { margin-top: 8px; font-size: 14px; line-height: 20px; color: var(--text-lighter); }
+    .hub__area { margin-top: 40px; }
+    .hub__area > h2 { font-size: 22px; line-height: 32px; color: var(--sesi-darkest); padding-bottom: 8px; border-bottom: 4px solid var(--sesi-darkest); }
+    .hub__flow { margin-top: 24px; }
+    .hub__flow > h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+    .hub__grid { margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .hub__card { display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid var(--border-row); border-radius: var(--radius); background: #fff; }
+    .hub__card > a { font-weight: 700; font-size: 16px; line-height: 1.4; color: var(--text-strong); }
+    .hub__card > a:hover { color: var(--sesi-pure); text-decoration: underline; }
+    .hub__states { display: flex; flex-wrap: wrap; gap: 6px; }
+    .hub__states a { font-size: 12px; line-height: 1.5; padding: 2px 8px; border-radius: 999px; background: var(--sesi-tint); color: var(--sesi-dark); }
+    .hub__states a:hover { background: var(--sesi-light); }
+    .hub__figma { font-size: 12px; color: var(--text-lightest); }
+    .hub__missing { margin-top: 24px; font-size: 14px; color: var(--text-lighter); }
+  </style>
+</head>
+<body data-role="professor" data-nav="none">
+  <div data-chrome="header"></div>
+  <main class="container hub">
+    <h1>AVA EJA · Fluxos de usuário</h1>
+    <p class="hub__intro">Todas as telas implementadas a partir do Figma, por perfil e fluxo. Cada estado do Figma abre direto pelos atalhos abaixo de cada tela.</p>
+    <div id="hub"></div>
+    <p class="hub__missing" id="hub-missing" hidden></p>
+  </main>
+  <div data-chrome="footer"></div>
+  <script src="shared/chrome.js"></script>
+  <script>
+    (async function () {
+      const GROUPS = ["prof-aval", "prof-qlist", "prof-qtipo", "prof-qrec", "prof-qprev", "prof-ativ", "prof-agenda", "prof-correcao", "est-realizar", "est-acomp"];
+      const AREA_ORDER = ["Professor", "Estudante"];
+      const FLOW_ORDER = ["Visão geral professor", "Construir a base para atividades", "Gerenciar atividades para uma turma", "Corrigir atividades", "Registrar desempenho", "Planejar estudos", "Realizar atividade", "Devolutiva corrigida", "Acompanhar desempenho"];
+      const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+      const missing = [];
+      const pages = (await Promise.all(GROUPS.map(async (g) => {
+        try {
+          const r = await fetch(`manifest/${g}.json`, { cache: "no-store" });
+          if (!r.ok) throw new Error(r.status);
+          return await r.json();
+        } catch { missing.push(g); return []; }
+      }))).flat();
+
+      const byArea = {};
+      for (const p of pages) ((byArea[p.area] ??= {})[p.flow] ??= []).push(p);
+      const rank = (list, v) => { const i = list.indexOf(v); return i < 0 ? 99 : i; };
+
+      document.getElementById("hub").innerHTML = Object.keys(byArea)
+        .sort((a, b) => rank(AREA_ORDER, a) - rank(AREA_ORDER, b))
+        .map((area) => `
+          <section class="hub__area"><h2>${esc(area)}</h2>
+            ${Object.keys(byArea[area]).sort((a, b) => rank(FLOW_ORDER, a) - rank(FLOW_ORDER, b)).map((flow) => `
+              <div class="hub__flow"><h3>${esc(flow)}</h3>
+                <div class="hub__grid">
+                  ${byArea[area][flow].map((p) => `
+                    <div class="hub__card">
+                      <a href="${esc(p.path)}">${esc(p.title)}</a>
+                      ${p.states?.length ? `<div class="hub__states">${p.states.map((s) => `<a href="${esc(p.path + (s.query || ""))}">${esc(s.label)}</a>`).join("")}</div>` : ""}
+                      ${p.figma?.length ? `<span class="hub__figma">Figma ${p.figma.map(esc).join(", ")}</span>` : ""}
+                    </div>`).join("")}
+                </div>
+              </div>`).join("")}
+          </section>`).join("");
+
+      if (missing.length) {
+        const el = document.getElementById("hub-missing");
+        el.hidden = false;
+        el.textContent = `Grupos ainda sem manifesto: ${missing.join(", ")}`;
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu boletim · Anos Finais - AF · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="est-acomp.css" />
+  <link rel="stylesheet" href="boletim.css" />
+</head>
+<body data-role="estudante">
+  <div data-chrome="header"></div>
+
+  <main class="container est-page">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Turmas</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current"><a href="atividades.html">Anos Finais - AF</a></li>
+        <li class="breadcrumb__trail"><span aria-hidden="true">›  </span><a href="#">Relatórios</a><span aria-hidden="true">  ›  </span><span aria-current="page">Meu boletim</span></li>
+      </ol>
+    </nav>
+
+    <section class="class-header" aria-label="Turma">
+      <div class="class-header__titles">
+        <p class="class-header__title">Anos Finais - AF</p>
+        <p class="class-header__subtitle">EJA</p>
+      </div>
+      <div class="class-header__actions">
+        <a class="btn btn--outline-sm" href="boletim.html" aria-current="page">Relatórios</a>
+        <button class="btn btn--outline-sm" type="button">Arquivos</button>
+        <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+      </div>
+    </section>
+
+    <a class="back-link" href="#">
+      <span class="back-link__icon" aria-hidden="true"><img src="assets/est-acomp/voltar.svg" width="20.0854" height="19.8" alt="" /></span>
+      Voltar para Relatórios
+    </a>
+
+    <div class="est-heading">
+      <div class="est-heading__text">
+        <h1>Meu boletim</h1>
+        <p class="est-lead">Consulte suas notas e acompanhe o desempenho em cada competência.</p>
+        <p class="est-small">aluno001@teste.com · Anos Finais - AF · EJA</p>
+      </div>
+    </div>
+
+    <section class="indicators" aria-label="Resumo individual">
+      <div class="indicator">
+        <p class="est-small">Competências completas</p>
+        <p class="indicator__value">2 de 6</p>
+        <p class="est-small">C1 e C4 com nota final disponível</p>
+      </div>
+      <div class="indicator">
+        <p class="est-small">Competências em processo</p>
+        <p class="indicator__value">4 de 6</p>
+        <p class="est-small">C2, C3, C5 e C6 com pendências</p>
+      </div>
+      <div class="indicator">
+        <p class="est-small">Atividade em correção</p>
+        <p class="indicator__value">1</p>
+        <p class="est-small">Leitura e interpretação de textos do cotidiano</p>
+      </div>
+    </section>
+
+    <aside class="notice" aria-label="Orientação">
+      <img class="notice__icon" src="assets/est-acomp/info.svg" width="20" height="20" alt="" />
+      <div class="notice__body">
+        <p class="notice__title">Seu boletim está em atualização</p>
+        <p class="notice__text">As pendências não valem zero. A nota final de cada competência só é calculada quando online, presencial e participação têm notas publicadas. Não há média final do período enquanto o boletim estiver incompleto.</p>
+      </div>
+    </aside>
+
+    <section class="weights" aria-labelledby="weights-title">
+      <h2 class="est-h2" id="weights-title">Como suas notas são compostas</h2>
+      <dl class="weights__list">
+        <div class="weight"><dt class="weight__label">Online</dt><dd class="weight__value">40%</dd></div>
+        <div class="weight"><dt class="weight__label">Presencial</dt><dd class="weight__value">40%</dd></div>
+        <div class="weight"><dt class="weight__label">Participação</dt><dd class="weight__value">20%</dd></div>
+      </dl>
+      <p class="est-small">Notas de 0 a 10. Nota final = online × 0,40 + presencial × 0,40 + participação × 0,20.</p>
+    </section>
+
+    <section class="report" aria-labelledby="report-title">
+      <h2 class="est-h2" id="report-title">Desempenho por competência</h2>
+      <p class="est-small">Somente suas notas · Consulta em leitura apenas</p>
+
+      <table class="report-table only-desktop">
+        <caption class="visually-hidden">Notas por competência. Selecione uma competência para ver a composição da nota.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Competência</th>
+            <th scope="col">Online · 40%</th>
+            <th scope="col">Presencial · 40%</th>
+            <th scope="col">Participação · 20%</th>
+            <th scope="col">Nota final</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody id="report-rows"></tbody>
+      </table>
+
+      <ul class="report-cards only-mobile" id="report-cards"></ul>
+
+      <p class="est-small">— Nota final não calculada · Em processo: há componentes sem nota publicada.</p>
+    </section>
+
+    <section class="composition" id="composition" aria-live="polite" aria-labelledby="composition-title"></section>
+
+    <a class="btn btn--outline-sm est-back-btn" href="atividades.html">VOLTAR PARA ATIVIDADES</a>
+
+    <p class="est-small">Dados demonstrativos · Atualizado em 09/10/26</p>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="boletim.js"></script>
+</body>
+</html>

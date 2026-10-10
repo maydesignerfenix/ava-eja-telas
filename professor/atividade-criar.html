@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar atividade · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Weight 800 (Inter Extra Bold) is used by the Figma titles; Roboto 500 by VOLTAR/CANCELAR. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="atividade-criar.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container ativ">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__parent"><a href="#">Questões e Atividade</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Criar atividade</li>
+      </ol>
+    </nav>
+
+    <div class="page-title ativ-title">
+      <div class="page-title__text">
+        <h1>Criar atividade</h1>
+        <p>Crie uma atividade e escolha se deseja agendá-la para uma turma</p>
+      </div>
+      <a class="btn btn--outline-md ativ-preview-link" id="preview-link" href="atividade-previa.html">VISUALIZAR PRÉVIA</a>
+    </div>
+
+    <p class="ativ-status" id="status" role="status" aria-live="polite" hidden></p>
+
+    <form id="wizard" class="wizard" novalidate>
+      <!-- Etapa 1 ------------------------------------------------------------ -->
+      <section class="step" data-step="1" aria-labelledby="step-1-title">
+        <h2 class="step__head">
+          <button class="step__toggle" type="button" aria-expanded="true" aria-controls="step-1-body" data-goto="1">
+            <span class="step__num" aria-hidden="true"><span>1</span><img src="assets/prof-ativ/check.svg" width="14" height="14" alt="" /></span>
+            <span class="step__title" id="step-1-title">Configurações da atividade</span>
+            <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+          </button>
+        </h2>
+        <dl class="step__summary" id="step-1-summary" hidden></dl>
+        <div class="step__body" id="step-1-body">
+          <p class="step__desc">Adicione detalhes categorizar a atividade</p>
+          <div class="fields">
+            <div class="fields__row">
+              <div class="ativ-field">
+                <label class="ativ-label" for="f-segmento">Segmento / Etapa <span class="req" aria-hidden="true">*</span></label>
+                <span class="select"><select id="f-segmento" name="segmento" required aria-describedby="e-segmento"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                <p class="field__error" id="e-segmento" hidden>Selecione o segmento / etapa.</p>
+              </div>
+              <div class="ativ-field">
+                <label class="ativ-label" for="f-matriz">Matriz Utilizada</label>
+                <span class="select"><select id="f-matriz" name="matriz" disabled><option>SESI</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+              </div>
+            </div>
+            <div class="ativ-field">
+              <label class="ativ-label" for="f-area">Área do conhecimento <span class="req" aria-hidden="true">*</span></label>
+              <span class="select"><select id="f-area" name="area" required aria-describedby="e-area"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+              <p class="field__error" id="e-area" hidden>Selecione a área do conhecimento.</p>
+            </div>
+            <div class="ativ-field">
+              <label class="ativ-label" for="f-competencia">Competência <span class="req" aria-hidden="true">*</span></label>
+              <span class="select"><select id="f-competencia" name="competencia" required aria-describedby="e-competencia"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+              <p class="field__error" id="e-competencia" hidden>Selecione a competência.</p>
+            </div>
+            <div class="ativ-field">
+              <label class="ativ-label" for="f-habilidade">Habilidade <span class="req" aria-hidden="true">*</span></label>
+              <span class="select"><select id="f-habilidade" name="habilidade" required aria-describedby="e-habilidade"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+              <p class="field__error" id="e-habilidade" hidden>Selecione a habilidade.</p>
+            </div>
+            <div class="ativ-field ativ-field--tags">
+              <label class="ativ-label" for="f-marcador">Marcadores <span class="req" aria-hidden="true">*</span></label>
+              <div class="tags" id="tags">
+                <ul class="tags__list" id="tags-list" aria-label="Marcadores adicionados"></ul>
+                <input class="tags__input" id="f-marcador" type="text" autocomplete="off" placeholder="Exemplo: Atividade de teste" aria-describedby="h-marcador e-marcador" />
+              </div>
+              <p class="ativ-hint" id="h-marcador">Adicione até no máximo 4 marcadores para facilitar a busca das atividades</p>
+              <p class="field__error" id="e-marcador" hidden>Adicione pelo menos 1 marcador.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etapa 2 ------------------------------------------------------------ -->
+      <section class="step" data-step="2" aria-labelledby="step-2-title">
+        <h2 class="step__head">
+          <button class="step__toggle" type="button" aria-expanded="false" aria-controls="step-2-body" data-goto="2">
+            <span class="step__num" aria-hidden="true"><span>2</span><img src="assets/prof-ativ/check.svg" width="14" height="14" alt="" /></span>
+            <span class="step__title" id="step-2-title">Questões da atividade</span>
+            <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+          </button>
+        </h2>
+        <dl class="step__summary" id="step-2-summary" hidden></dl>
+        <div class="step__body" id="step-2-body" hidden>
+          <div class="q-top">
+            <div class="q-intro">
+              <h3 class="q-heading">Questões da atividade <span class="req" aria-hidden="true">*</span></h3>
+              <p class="step__desc">Adicione questões do banco de questões ou crie novas para compor esta atividade</p>
+            </div>
+            <div class="q-actions">
+              <button class="btn btn--primary" type="button" id="open-picker" aria-haspopup="dialog">
+                <img src="assets/prof-ativ/add-2.svg" width="20" height="20" alt="" />ADICIONAR QUESTÕES
+              </button>
+              <a class="btn btn--outline-md q-create" href="#">CRIAR QUESTÃO</a>
+            </div>
+            <p class="field__error" id="e-questoes" hidden>Adicione pelo menos 1 questão à atividade.</p>
+          </div>
+          <div class="q-empty" id="q-empty">
+            <img src="assets/prof-ativ/format-list-bulleted.svg" width="48" height="48" alt="" />
+            <div>
+              <p class="q-heading">Nenhuma questão adicionada ainda</p>
+              <p class="step__desc">Busque questões já existentes ou crie uma nova questão</p>
+            </div>
+          </div>
+          <div class="q-selected" id="q-selected" hidden>
+            <h3 class="q-heading" id="q-total" aria-live="polite">Pontuação máxima: 0 pontos</h3>
+            <p class="step__desc" id="q-order-hint">Ordene a sequência didática das questões da atividade:</p>
+            <ol class="q-list" id="q-list" aria-labelledby="q-order-hint"></ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Etapa 3 ------------------------------------------------------------ -->
+      <section class="step" data-step="3" aria-labelledby="step-3-title">
+        <h2 class="step__head">
+          <button class="step__toggle" type="button" aria-expanded="false" aria-controls="step-3-body" data-goto="3">
+            <span class="step__num" aria-hidden="true"><span>3</span><img src="assets/prof-ativ/check.svg" width="14" height="14" alt="" /></span>
+            <span class="step__title" id="step-3-title">Agendamento da atividade (Opcional)</span>
+            <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+          </button>
+        </h2>
+        <dl class="step__summary" id="step-3-summary" hidden></dl>
+        <div class="step__body step__body--panels" id="step-3-body" hidden>
+
+          <!-- Agendar para -->
+          <section class="panel" data-panel="para">
+            <h3 class="panel__head">
+              <button class="panel__toggle" type="button" aria-expanded="false" aria-controls="panel-para">
+                <span class="panel__title">Agendar para</span>
+                <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+              </button>
+            </h3>
+            <div class="panel__body" id="panel-para" hidden>
+              <p class="step__desc">Escolha para quem a atividade será realizada</p>
+              <fieldset class="choices">
+                <legend class="visually-hidden">Agendar para</legend>
+                <div class="choice">
+                  <label class="choice__label"><input type="radio" name="para" value="turma" /> Toda turma</label>
+                  <div class="choice__body">
+                    <p class="choice__desc">Selecione para quais turmas a atividade será agendada.</p>
+                    <div class="choice__extra" data-when="turma">
+                      <div class="ativ-field">
+                        <label class="ativ-label" for="f-turma">Turmas <span class="req" aria-hidden="true">*</span></label>
+                        <span class="select select--strong"><select id="f-turma" aria-describedby="e-turma"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                        <p class="field__error" id="e-turma" hidden>Selecione pelo menos uma turma.</p>
+                      </div>
+                      <p class="choice__desc" id="turmas-count" hidden></p>
+                      <ul class="turma-chips" id="turma-chips" aria-labelledby="turmas-count"></ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="choice">
+                  <label class="choice__label"><input type="radio" name="para" value="estudantes" /> Estudantes selecionados</label>
+                  <div class="choice__body"><p class="choice__desc">Selecione estudantes da turma deverão realizar esta atividade.</p></div>
+                </div>
+                <div class="choice">
+                  <label class="choice__label"><input type="radio" name="para" value="competencia" /> Por competência</label>
+                  <div class="choice__body"><p class="choice__desc">Somente estudantes da competência selecionada deverão realizar esta atividade.</p></div>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <!-- Duração do agendamento -->
+          <section class="panel" data-panel="duracao">
+            <h3 class="panel__head">
+              <button class="panel__toggle" type="button" aria-expanded="false" aria-controls="panel-duracao">
+                <span class="panel__title">Duração do agendamento</span>
+                <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+              </button>
+            </h3>
+            <div class="panel__body" id="panel-duracao" hidden>
+              <p class="step__desc">Escolha quando esta atividade deverá ser realizada</p>
+              <div class="fields__row fields__row--gap20">
+                <div class="ativ-field">
+                  <label class="ativ-label" for="f-inicio">Inícia em <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="f-inicio" type="datetime-local" aria-describedby="e-inicio" />
+                  <p class="field__error" id="e-inicio" hidden>Informe quando a atividade inicia.</p>
+                </div>
+                <div class="ativ-field">
+                  <label class="ativ-label" for="f-fim">Termina em</label>
+                  <input class="input" id="f-fim" type="datetime-local" aria-describedby="h-fim e-fim" />
+                  <p class="ativ-hint" id="h-fim">A data de término não é obrigatória para o agendamento</p>
+                  <p class="field__error" id="e-fim" hidden>O término deve ser posterior ao início.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tempo de duração -->
+          <section class="panel panel--switch" data-panel="tempo">
+            <div class="panel__head">
+              <label class="switch"><input type="checkbox" role="switch" data-switch="tempo" /><span class="visually-hidden">Ativar tempo de duração</span></label>
+              <button class="panel__toggle" type="button" aria-expanded="false" aria-controls="panel-tempo">
+                <span class="panel__title">Tempo de duração</span>
+                <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <div class="panel__body panel__body--inset" id="panel-tempo" hidden>
+              <fieldset class="switch-fields" data-for="tempo" disabled>
+                <legend class="visually-hidden">Tempo de duração</legend>
+                <label class="time-input">
+                  <span class="visually-hidden">Tempo de duração (horas:minutos)</span>
+                  <img src="assets/prof-ativ/alarm.svg" width="20" height="20" alt="" />
+                  <input id="f-tempo" type="text" inputmode="numeric" placeholder="00:00" pattern="[0-9]{2}:[0-9]{2}" maxlength="5" />
+                </label>
+                <p class="step__desc">Limite o tempo para realizar a atividade</p>
+              </fieldset>
+            </div>
+          </section>
+
+          <!-- Dependência -->
+          <section class="panel panel--switch" data-panel="dependencia">
+            <div class="panel__head">
+              <label class="switch"><input type="checkbox" role="switch" data-switch="dependencia" /><span class="visually-hidden">Ativar dependência</span></label>
+              <button class="panel__toggle" type="button" aria-expanded="false" aria-controls="panel-dependencia">
+                <span class="panel__title">Dependência</span>
+                <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <div class="panel__body panel__body--inset" id="panel-dependencia" hidden>
+              <p class="step__desc">Defina uma condição que o estudante deverá cumprir antes de acessar esta atividade</p>
+              <fieldset class="switch-fields choices" data-for="dependencia" disabled>
+                <legend class="visually-hidden">Dependência</legend>
+                <div class="choice">
+                  <label class="choice__label"><input type="radio" name="dep" value="atividade" /> Por Atividade</label>
+                  <div class="choice__body">
+                    <div class="ativ-field" data-dep="atividade">
+                      <label class="ativ-label" for="f-dep-atividade">Atividade</label>
+                      <span class="select"><select id="f-dep-atividade"><option value="">Placeholder</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="choice">
+                  <label class="choice__label"><input type="radio" name="dep" value="nota" /> Por Nota mínima</label>
+                  <div class="choice__body">
+                    <div class="ativ-field ativ-field--111" data-dep="nota">
+                      <label class="ativ-label" for="f-dep-nota">Nota mínima</label>
+                      <input class="input" id="f-dep-nota" type="number" min="0" max="10" placeholder="00" />
+                    </div>
+                  </div>
+                </div>
+                <div class="choice">
+                  <label class="choice__label"><input type="radio" name="dep" value="caderno" /> Por caderno</label>
+                  <div class="choice__body choice__body--16" data-dep="caderno">
+                    <div class="dep-comp">
+                      <div>
+                        <p class="dep-comp__label">Atividade agendada por competência:</p>
+                        <p class="step__desc">C2 - Linguagens e suas tecnologias</p>
+                      </div>
+                      <button class="dep-comp__edit" type="button"><img src="assets/prof-ativ/edit-sm.svg" width="20" height="20" alt="" />Editar</button>
+                    </div>
+                    <div class="ativ-field">
+                      <label class="ativ-label" for="f-dep-habilidade">Habilidade</label>
+                      <span class="select"><select id="f-dep-habilidade"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                    </div>
+                    <div class="ativ-field">
+                      <label class="ativ-label" for="f-dep-caderno">Caderno</label>
+                      <span class="select"><select id="f-dep-caderno"><option value="">Selecione</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <!-- Correção -->
+          <section class="panel panel--switch panel--static" data-panel="correcao">
+            <div class="panel__head">
+              <label class="switch"><input type="checkbox" role="switch" id="f-correcao" aria-describedby="d-correcao" /><span class="visually-hidden">Ativar correção</span></label>
+              <div class="panel__text">
+                <span class="panel__title">Correção</span>
+                <p class="step__desc" id="d-correcao">Mostre as respostas para o estudante ao finalizar a atividade.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tentativas -->
+          <section class="panel panel--switch" data-panel="tentativas">
+            <div class="panel__head">
+              <label class="switch"><input type="checkbox" role="switch" data-switch="tentativas" /><span class="visually-hidden">Ativar mais tentativas de resposta</span></label>
+              <button class="panel__toggle" type="button" aria-expanded="false" aria-controls="panel-tentativas">
+                <span class="panel__title">Adicione mais tentativas de resposta</span>
+                <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <div class="panel__body panel__body--inset" id="panel-tentativas" hidden>
+              <p class="step__desc">As questões já possuem 01 tentativa.</p>
+              <fieldset class="switch-fields" data-for="tentativas" disabled>
+                <legend class="visually-hidden">Tentativas</legend>
+                <div class="ativ-field ativ-field--239">
+                  <label class="ativ-label" for="f-tentativas">Tentativas</label>
+                  <span class="select"><select id="f-tentativas" aria-describedby="h-tentativas"></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                  <p class="ativ-hint" id="h-tentativas">Máximo de tentativas: 10</p>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <!-- Randomização -->
+          <section class="panel panel--switch" data-panel="random">
+            <div class="panel__head">
+              <label class="switch"><input type="checkbox" role="switch" data-switch="random" /><span class="visually-hidden">Ativar randomização das questões</span></label>
+              <button class="panel__toggle" type="button" aria-expanded="false" aria-controls="panel-random">
+                <span class="panel__title">Randomização das questões da atividade <img src="assets/prof-ativ/info.svg" width="20" height="20" alt="" title="Questões em ordem aleatória para cada estudante." /></span>
+                <img class="step__chevron" src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <div class="panel__body panel__body--inset" id="panel-random" hidden>
+              <p class="step__desc">Questões em ordem aleatória para cada estudante.</p>
+              <p class="step__desc random-total">Esta atividade possui <strong id="random-total">0 questões</strong></p>
+              <fieldset class="switch-fields fields__row fields__row--gap22" data-for="random" disabled>
+                <legend class="visually-hidden">Randomização</legend>
+                <div class="ativ-field">
+                  <label class="ativ-label" for="f-random-qtd">Quantidade aleatória</label>
+                  <span class="select"><select id="f-random-qtd" aria-describedby="h-random-qtd"><option value="">00</option></select><img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" /></span>
+                  <p class="ativ-hint" id="h-random-qtd">Quantas questões o estudante precisará responder</p>
+                </div>
+                <div class="ativ-field">
+                  <label class="ativ-label" for="f-random-pts">Pontuação</label>
+                  <input class="input" id="f-random-pts" type="number" min="0" placeholder="10" aria-describedby="h-random-pts" />
+                  <p class="ativ-hint" id="h-random-pts">Pontuação máxima: 10</p>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+        </div>
+      </section>
+    </form>
+
+    <p class="autosave">
+      <img src="assets/prof-ativ/cloud-done.svg" width="24" height="24" alt="" />
+      <span id="autosave-text">Salvo automaticamente às 12:22 em 12/05/26 por Alice Souza</span>
+    </p>
+  </main>
+
+  <div class="action-bar">
+    <div class="container action-bar__inner">
+      <button class="action-back" type="button" id="btn-back">VOLTAR</button>
+      <div class="action-bar__main">
+        <button class="btn btn--outline-md action-btn" type="button" id="btn-draft" disabled>SALVAR RASCUNHO</button>
+        <button class="btn btn--primary action-btn" type="submit" form="wizard" id="btn-create" disabled>CRIAR ATIVIDADE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: escolher questões (Figma 4148:56917 / 4167:94869) -->
+  <dialog class="modal picker" id="picker" aria-labelledby="picker-title">
+    <div class="picker__inner">
+      <header class="picker__head">
+        <h2 class="picker__title" id="picker-title">Selecione as questões para a atividade</h2>
+        <button class="picker__close" type="button" id="picker-close" aria-label="Fechar"><img src="assets/prof-ativ/x-circle.svg" width="20" height="20" alt="" /></button>
+      </header>
+      <div class="picker__body">
+        <p class="picker__desc">Selecione abaixo as questões para a atividade <span id="picker-activity">Atividade de exemplo para prévia</span></p>
+        <div class="picker__toolbar">
+          <p class="picker__count" id="picker-count" aria-live="polite"></p>
+          <label class="search picker__search">
+            <span class="visually-hidden">Buscar questões</span>
+            <img class="search__icon" src="../shared/assets/search.svg" width="18" height="18" alt="" />
+            <input id="picker-search" type="search" placeholder="buscar" autocomplete="off" />
+          </label>
+          <button class="btn btn--outline-md picker__filter-btn" type="button" id="picker-filter-btn" aria-expanded="false" aria-controls="picker-filters">
+            <img src="assets/prof-ativ/filter-alt.svg" width="31.2" height="31.2" alt="" />Filtrar
+          </button>
+        </div>
+        <div class="picker__filters" id="picker-filters" hidden>
+          <label class="select">
+            <span class="visually-hidden">Tipo de questão</span>
+            <select id="picker-tipo"><option value="">Todos os tipos</option></select>
+            <img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+          </label>
+          <label class="select">
+            <span class="visually-hidden">Nível de dificuldade</span>
+            <select id="picker-dif"><option value="">Todos os níveis</option><option>Fácil</option><option>Médio</option><option>Difícil</option></select>
+            <img src="assets/prof-ativ/eti-arrow-down.svg" width="24" height="24" alt="" />
+          </label>
+        </div>
+        <div class="picker__table" role="region" aria-label="Banco de questões">
+          <div class="picker__thead only-desktop">
+            <span class="pk-col pk-col--lead"></span>
+            <button class="pk-th pk-col--q" type="button" id="picker-sort">QUESTÃO <span class="sort-icon" aria-hidden="true"><img src="assets/prof-ativ/sort-up.svg" width="24" height="24" alt="" /><img src="assets/prof-ativ/sort-down.svg" width="24" height="24" alt="" /></span></button>
+            <span class="pk-th pk-col--comp">COMPETÊNCIA E HABILIDADES</span>
+            <span class="pk-th pk-col--dif">NÍVEL DE DIFICULDADE</span>
+            <span class="pk-th pk-col--act">AÇÕES</span>
+          </div>
+          <p class="picker__thead-mobile only-mobile">QUESTÃO · COMPETÊNCIA E HABILIDADES · NÍVEL DE DIFICULDADE · AÇÕES</p>
+          <ul class="picker__list" id="picker-list"></ul>
+        </div>
+      </div>
+      <footer class="picker__foot">
+        <button class="picker__cancel" type="button" id="picker-cancel">CANCELAR</button>
+        <button class="btn btn--primary" type="button" id="picker-add">ESCOLHER QUESTÕES</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="atividade-dados.js"></script>
+  <script src="atividade-criar.js"></script>
+</body>
+</html>

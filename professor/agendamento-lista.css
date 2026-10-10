@@ -1,0 +1,95 @@
+/* Professor · Turma · Agendamentos da atividade (modal over the activity list)
+   Figma: 4155:61415 (desktop) / 4155:61283 (mobile) */
+
+:root {
+  --sched-border: #dee5e0;
+  --sched-muted: #66716c;
+  --sched-text: #263238;
+  --sched-close-bg: #f5f7f6;
+  --sched-closed-bg: #eef0f2;
+  --sched-closed-fg: #4b5563;
+  --sched-running-bg: #e4f4ee;
+  --sched-running-fg: #086750;
+  --sched-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
+}
+
+.sched-modal {
+  max-width: min(1040px, 100% - 32px);
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  box-shadow: var(--sched-shadow);
+}
+
+/* Header */
+.sched-modal__head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--sched-border);
+}
+.sched-modal__title { flex: 1 1 0; min-width: 0; font-weight: 700; font-size: 24px; line-height: 1.3; color: var(--sesi-dark); }
+.sched-modal__close {
+  flex: none; display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: var(--radius); background: var(--sched-close-bg);
+}
+.sched-modal__close:hover { background: var(--sched-closed-bg); }
+
+/* Activity summary */
+.sched-modal__summary { display: flex; align-items: center; gap: 16px; padding: 24px 32px; }
+.sched-modal__activity { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.sched-modal__name { font-weight: 700; font-size: 18px; line-height: 1.4; color: var(--sesi-dark); }
+.sched-modal__count { font-size: 14px; line-height: 20px; color: var(--sched-muted); }
+.sched-modal__new { flex: none; width: 120px; height: 40px; background: #fff; }
+
+/* Secondary small buttons in this modal use SESI dark text (Figma) */
+.sched-modal .btn--outline-sm { color: var(--sesi-dark); }
+
+/* List */
+.sched-list { padding: 0 32px 24px; }
+.sched-list__labels {
+  display: flex; gap: 20px; padding: 0 16px 2px;
+  font-weight: 600; font-size: 12px; line-height: normal; color: var(--sched-muted);
+}
+.sched-list__label--who { flex: 1 1 0; min-width: 0; }
+.sched-list__label--period { flex: none; width: 196px; }
+.sched-list__label--status { flex: none; width: 248px; }
+.sched-list__items { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+
+.sched {
+  display: flex; align-items: center; gap: 20px;
+  padding: 19px 15px; /* Figma 20/16 with inside stroke */
+  border: 1px solid var(--sched-border); border-radius: var(--radius); background: #fff;
+}
+.sched__who { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.sched__title { font-weight: 600; font-size: 14px; line-height: 20px; color: var(--sched-text); }
+.sched__detail { font-size: 12px; line-height: 18px; color: var(--sched-muted); }
+.sched__period { flex: none; width: 196px; display: flex; align-items: center; gap: 7px; font-weight: 500; font-size: 13px; line-height: normal; color: var(--sched-text); white-space: nowrap; }
+.sched__period img { flex: none; }
+.sched__state { flex: none; width: 248px; display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+.sched__badge-wrap { flex: 1 1 0; min-width: 0; display: flex; }
+.sched__badge {
+  display: inline-flex; align-items: center; gap: 5px; padding: 6px 8px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 12px; line-height: normal; white-space: nowrap;
+  background: var(--sched-closed-bg); color: var(--sched-closed-fg);
+}
+.sched__badge--running { background: var(--sched-running-bg); color: var(--sched-running-fg); }
+.sched__action { flex: none; width: 94px; height: 40px; }
+.sched__action.btn--outline-sm { background: #fff; }
+.sched__action.btn--outline-sm:hover { background: var(--sesi-hover); }
+
+.sched-list__empty { padding: 32px 0; text-align: center; font-size: 14px; color: var(--sched-muted); }
+
+/* Mobile (Figma 4155:61283: 370px modal, stacked cards) ------------------- */
+@media (max-width: 1023.98px) {
+  .sched-modal { margin-top: 16px; }
+  .sched-modal__head { padding: 20px 20px 16px; }
+  .sched-modal__title { font-size: 20px; }
+  .sched-modal__summary { flex-direction: column; align-items: stretch; gap: 20px; padding: 24px 16px 20px; }
+  .sched-modal__name { font-size: 16px; }
+  .sched-modal__new { width: 100%; }
+  .sched-list { padding: 0 16px 20px; }
+  .sched-list__items { margin-top: 0; gap: 12px; }
+  .sched { flex-direction: column; align-items: stretch; gap: 12px; padding: 15px; }
+  .sched__who { gap: 4px; }
+  .sched__period { width: auto; font-size: 14px; }
+  .sched__state { width: auto; }
+}

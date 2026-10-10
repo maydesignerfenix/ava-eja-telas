@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agendar atividade · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="agendamento-turma.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container ag-page">
+    <nav class="breadcrumb ag-breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Turmas</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="turma-atividades.html">Anos Finais - AF</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="turma-atividades.html">Atividades</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Agendar atividade</li>
+      </ol>
+    </nav>
+
+    <div class="ag-title">
+      <div class="ag-title__text">
+        <h1>Agendar atividade</h1>
+        <p>Agende uma atividade para a turma</p>
+      </div>
+      <button class="btn btn--outline-md ag-btn-lg" type="button" id="btn-preview">VISUALIZAR PRÉVIA</button>
+    </div>
+
+    <form class="ag-form" id="ag-form" novalidate>
+      <p class="visually-hidden" id="ag-status" role="status" aria-live="polite"></p>
+
+      <!-- ===================== Etapa 1 ===================== -->
+      <section class="step" id="step-1" data-step="1" aria-labelledby="step-1-title">
+        <h2 class="step__heading">
+          <button class="step__head" type="button" aria-expanded="true" aria-controls="step-1-body">
+            <span class="step__badge" aria-hidden="true"><span class="step__num">1</span><img class="step__check" src="assets/prof-agenda/check.svg" width="14" height="14" alt="" /></span>
+            <span class="step__title" id="step-1-title">Configurações do agendamento</span>
+            <span class="step__summary" id="step-1-summary"></span>
+            <img class="step__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+          </button>
+        </h2>
+
+        <div class="step__body" id="step-1-body">
+          <div class="ag-block ag-block--intro">
+            <p class="ag-muted">Adicione detalhes categorizar a atividade</p>
+            <div class="field" data-field="titulo">
+              <label class="field__label" for="f-titulo">Título do agendamento <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="f-titulo" name="titulo" type="text" placeholder="Exemplo: Terceira atividade do semestre" required aria-describedby="f-titulo-hint f-titulo-err" autocomplete="off" />
+              <p class="field__error" id="f-titulo-err" hidden></p>
+              <p class="ag-hint" id="f-titulo-hint">O título ajuda a identificar as atividades agendadas</p>
+            </div>
+          </div>
+
+          <fieldset class="ag-block">
+            <legend class="ag-section-head">
+              <span class="ag-section-head__title">Categoria</span>
+              <span class="ag-section-head__desc">As categorias não são exibidas para estudantes. Elas ajudam na sua identificação de agendamentos.</span>
+            </legend>
+            <div class="opt-row opt-row--3">
+              <label class="opt opt--compact"><input class="radio" type="radio" name="categoria" value="Atividade" checked /><span class="opt__label">Atividade</span></label>
+              <label class="opt opt--compact"><input class="radio" type="radio" name="categoria" value="Participação" /><span class="opt__label">Participação</span></label>
+              <label class="opt opt--compact"><input class="radio" type="radio" name="categoria" value="Trabalhos" /><span class="opt__label">Trabalhos</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="ag-block">
+            <legend class="ag-section-head">
+              <span class="ag-section-head__title ag-section-head__title--bold">Formato da atividade</span>
+              <span class="ag-section-head__desc">Escolha como a atividade será realizada pelos estudantes</span>
+            </legend>
+            <div class="opt-row opt-row--2">
+              <label class="opt opt--format">
+                <span class="opt__radio-col"><input class="radio" type="radio" name="formato" value="online" checked aria-describedby="fmt-online-desc" /></span>
+                <span class="opt__content">
+                  <span class="opt__line"><img src="assets/prof-agenda/computer.svg" width="20" height="20" alt="" /><span class="opt__label">Online</span></span>
+                  <span class="opt__desc" id="fmt-online-desc">A atividade deverá ser realizada pelos estudantes dentro do sistema</span>
+                </span>
+              </label>
+              <label class="opt opt--format-alt">
+                <span class="opt__line"><input class="radio" type="radio" name="formato" value="impresso" aria-describedby="fmt-impresso-desc" /><img src="assets/prof-agenda/print.svg" width="20" height="20" alt="" /><span class="opt__label">Impresso</span></span>
+                <span class="opt__desc" id="fmt-impresso-desc">A atividade deverá ser impressa e realizada pelos estudantes de forma presencial</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Agendar para (rendered by JS, shared with etapa 3) -->
+          <fieldset class="ag-block ag-block--para" id="para-1" data-online-only>
+            <legend class="ag-section-head">
+              <span class="ag-section-head__title ag-section-head__title--bold">Agendar para</span>
+              <span class="ag-section-head__desc">Escolha para quem a atividade será realizada</span>
+            </legend>
+            <div class="para-options" data-para="1"></div>
+          </fieldset>
+
+          <div class="ag-block" role="group" aria-labelledby="dur-1-title">
+            <div class="ag-section-head">
+              <h3 class="ag-section-head__title ag-section-head__title--bold" id="dur-1-title">Duração do agendamento</h3>
+              <p class="ag-section-head__desc">Escolha quando esta atividade deverá ser realizada</p>
+            </div>
+            <div class="dates" data-dates="1"></div>
+          </div>
+
+          <div class="step__next">
+            <button class="btn btn--primary-sm" type="button" data-next="1">CONTINUAR</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Etapa 2 ===================== -->
+      <section class="step" id="step-2" data-step="2" data-online-only aria-labelledby="step-2-title">
+        <h2 class="step__heading">
+          <button class="step__head" type="button" aria-expanded="false" aria-controls="step-2-body">
+            <span class="step__badge" aria-hidden="true"><span class="step__num">2</span><img class="step__check" src="assets/prof-agenda/check.svg" width="14" height="14" alt="" /></span>
+            <span class="step__title" id="step-2-title">Selecione a atividade</span>
+            <span class="step__summary" id="step-2-summary"></span>
+            <img class="step__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+          </button>
+        </h2>
+
+        <div class="step__body" id="step-2-body" hidden>
+          <div class="ag-block ag-block--activity" id="activity-empty">
+            <p class="ag-section-head__title">Adicione uma  atividade existente ou crie uma nova <span class="req" aria-hidden="true">*</span></p>
+            <div class="ag-actions-row">
+              <button class="btn btn--primary ag-btn-lg" type="button" id="btn-add-activity">
+                <img src="assets/prof-agenda/add.svg" width="20" height="20" alt="" />
+                ADICIONE UMA ATIVIDADE
+              </button>
+              <a class="btn btn--outline-md ag-btn-lg" href="atividade-criar.html">CRIAR ATIVIDADE</a>
+            </div>
+          </div>
+          <div class="ag-empty" id="activity-empty-box">
+            <p class="ag-empty__title">Nenhuma atividade adicionada ainda</p>
+            <p class="ag-empty__text">Busque uma atividade já existente ou crie uma nova questão</p>
+          </div>
+          <p class="field__error ag-step-error" id="activity-err" hidden></p>
+
+          <div class="ag-block ag-block--activity" id="activity-selected" hidden>
+            <p class="ag-section-head__title">Atividade selecionada <span class="req" aria-hidden="true">*</span></p>
+            <div class="act-card" id="act-card"></div>
+          </div>
+
+          <div class="step__next">
+            <button class="btn btn--primary-sm" type="button" data-next="2">CONTINUAR</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Etapa 3 ===================== -->
+      <section class="step" id="step-3" data-step="3" data-online-only aria-labelledby="step-3-title">
+        <h2 class="step__heading">
+          <button class="step__head" type="button" aria-expanded="false" aria-controls="step-3-body">
+            <span class="step__badge" aria-hidden="true"><span class="step__num">3</span><img class="step__check" src="assets/prof-agenda/check.svg" width="14" height="14" alt="" /></span>
+            <span class="step__title" id="step-3-title">Regras do agendamento</span>
+            <span class="step__summary" id="step-3-summary"></span>
+            <img class="step__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+          </button>
+        </h2>
+
+        <div class="step__body step__body--rules" id="step-3-body" hidden>
+          <!-- Agendar para -->
+          <section class="rule" data-rule="para">
+            <div class="rule__head">
+              <button class="rule__toggle" type="button" aria-expanded="false" aria-controls="rule-para-body">
+                <span class="rule__title">Agendar para</span>
+                <img class="rule__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <fieldset class="rule__body" id="rule-para-body" hidden>
+              <legend class="ag-muted">Escolha para quem a atividade será realizada</legend>
+              <div class="para-options" data-para="3"></div>
+            </fieldset>
+          </section>
+
+          <!-- Duração -->
+          <section class="rule" data-rule="duracao">
+            <div class="rule__head">
+              <button class="rule__toggle" type="button" aria-expanded="false" aria-controls="rule-dur-body">
+                <span class="rule__title">Duração do agendamento</span>
+                <img class="rule__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <div class="rule__body" id="rule-dur-body" hidden>
+              <p class="ag-muted">Escolha quando esta atividade deverá ser realizada</p>
+              <div class="dates" data-dates="3"></div>
+            </div>
+          </section>
+
+          <!-- Tempo de duração -->
+          <section class="rule rule--switch" data-rule="tempo">
+            <div class="rule__head">
+              <button class="switch" type="button" role="switch" aria-checked="false" data-switch="tempo" aria-label="Ativar tempo de duração"><span class="switch__knob"></span></button>
+              <button class="rule__toggle" type="button" aria-expanded="false" aria-controls="rule-tempo-body">
+                <span class="rule__title">Tempo de duração</span>
+                <img class="rule__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <fieldset class="rule__body rule__body--indent" id="rule-tempo-body" hidden disabled data-switch-body="tempo">
+              <legend class="visually-hidden">Tempo de duração</legend>
+              <div class="field field--time" data-field="tempo">
+                <label class="visually-hidden" for="f-tempo">Tempo limite (horas:minutos)</label>
+                <span class="input input--icon">
+                  <img src="assets/prof-agenda/alarm.svg" width="20" height="20" alt="" />
+                  <input id="f-tempo" name="tempo" type="time" value="00:00" aria-describedby="f-tempo-hint f-tempo-err" />
+                </span>
+                <p class="field__error" id="f-tempo-err" hidden></p>
+              </div>
+              <p class="ag-muted" id="f-tempo-hint">Limite o tempo para realizar a atividade</p>
+            </fieldset>
+          </section>
+
+          <!-- Dependência -->
+          <section class="rule rule--switch" data-rule="dependencia">
+            <div class="rule__head">
+              <button class="switch" type="button" role="switch" aria-checked="false" data-switch="dependencia" aria-label="Ativar dependência"><span class="switch__knob"></span></button>
+              <button class="rule__toggle" type="button" aria-expanded="false" aria-controls="rule-dep-body">
+                <span class="rule__title">Dependência</span>
+                <img class="rule__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <fieldset class="rule__body rule__body--indent rule__body--dep" id="rule-dep-body" hidden disabled data-switch-body="dependencia">
+              <legend class="ag-muted">Defina uma condição que o estudante deverá cumprir antes de acessar esta atividade</legend>
+              <div class="dep-options">
+                <div class="opt opt--block" data-dep="atividade">
+                  <label class="opt__line"><input class="radio" type="radio" name="dep" value="atividade" /><span class="opt__label">Por Atividade</span></label>
+                  <div class="opt__extra">
+                    <div class="field" data-field="dep-atividade">
+                      <label class="field__label" for="f-dep-atividade">Atividade</label>
+                      <span class="select">
+                        <select id="f-dep-atividade" name="depAtividade" aria-describedby="f-dep-atividade-err">
+                          <option value="">Placeholder</option>
+                        </select>
+                        <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+                      </span>
+                      <p class="field__error" id="f-dep-atividade-err" hidden></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="opt opt--block" data-dep="nota">
+                  <label class="opt__line"><input class="radio" type="radio" name="dep" value="nota" /><span class="opt__label">Por Nota mínima</span></label>
+                  <div class="opt__extra">
+                    <div class="field field--narrow" data-field="dep-nota">
+                      <label class="field__label" for="f-dep-nota">Nota mínima</label>
+                      <input class="input" id="f-dep-nota" name="depNota" type="number" min="1" max="10" step="1" placeholder="00" inputmode="numeric" aria-describedby="f-dep-nota-err" />
+                      <p class="field__error" id="f-dep-nota-err" hidden></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="opt opt--block" data-dep="caderno">
+                  <label class="opt__line"><input class="radio" type="radio" name="dep" value="caderno" /><span class="opt__label">Por caderno</span></label>
+                  <div class="opt__extra opt__extra--stack">
+                    <div class="dep-comp">
+                      <div class="dep-comp__text">
+                        <p class="dep-comp__label">Atividade agendada por competência:</p>
+                        <p class="dep-comp__value">C2 - Linguagens e suas tecnologias</p>
+                      </div>
+                      <button class="dep-comp__edit" type="button"><img src="assets/prof-agenda/edit.svg" width="20" height="20" alt="" /><span>Editar</span></button>
+                    </div>
+                    <div class="field" data-field="dep-habilidade">
+                      <label class="field__label" for="f-dep-habilidade">Habilidade</label>
+                      <span class="select">
+                        <select id="f-dep-habilidade" name="depHabilidade" aria-describedby="f-dep-habilidade-err">
+                          <option value="">Selecione</option>
+                          <option>H1 - Identificar as diferentes linguagens</option>
+                          <option>H4 - Reconhecer recursos expressivos</option>
+                          <option>H6 - Relacionar textos e contextos</option>
+                        </select>
+                        <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+                      </span>
+                      <p class="field__error" id="f-dep-habilidade-err" hidden></p>
+                    </div>
+                    <div class="field" data-field="dep-caderno">
+                      <label class="field__label" for="f-dep-caderno">Caderno</label>
+                      <span class="select">
+                        <select id="f-dep-caderno" name="depCaderno" aria-describedby="f-dep-caderno-err">
+                          <option value="">Selecione</option>
+                          <option>Caderno 1 - Leitura e interpretação</option>
+                          <option>Caderno 2 - Produção de textos</option>
+                          <option>Caderno 3 - Linguagens digitais</option>
+                        </select>
+                        <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+                      </span>
+                      <p class="field__error" id="f-dep-caderno-err" hidden></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="field__error" id="f-dep-err" hidden></p>
+            </fieldset>
+          </section>
+
+          <!-- Correção -->
+          <section class="rule rule--switch rule--flat" data-rule="correcao">
+            <div class="rule__head">
+              <button class="switch" type="button" role="switch" aria-checked="false" data-switch="correcao" aria-labelledby="rule-correcao-title" aria-describedby="rule-correcao-desc"><span class="switch__knob"></span></button>
+              <div class="rule__text">
+                <h3 class="rule__title" id="rule-correcao-title">Correção</h3>
+                <p class="ag-muted" id="rule-correcao-desc">Mostre as respostas para o estudante ao finalizar a atividade.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tentativas -->
+          <section class="rule rule--switch" data-rule="tentativas">
+            <div class="rule__head">
+              <button class="switch" type="button" role="switch" aria-checked="false" data-switch="tentativas" aria-label="Ativar mais tentativas de resposta"><span class="switch__knob"></span></button>
+              <button class="rule__toggle" type="button" aria-expanded="false" aria-controls="rule-tent-body">
+                <span class="rule__title">Adicione mais tentativas de resposta</span>
+                <img class="rule__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <fieldset class="rule__body rule__body--indent rule__body--tight" id="rule-tent-body" hidden disabled data-switch-body="tentativas">
+              <legend class="ag-muted">As questões já possuem 01 tentativa.</legend>
+              <div class="field field--tent" data-field="tentativas">
+                <label class="field__label" for="f-tentativas">Tentativas</label>
+                <input class="input" id="f-tentativas" name="tentativas" type="number" min="2" max="10" step="1" placeholder="02" inputmode="numeric" aria-describedby="f-tentativas-hint f-tentativas-err" />
+                <p class="field__error" id="f-tentativas-err" hidden></p>
+                <p class="ag-hint" id="f-tentativas-hint">Máximo de tentativas: 10</p>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- Randomização -->
+          <section class="rule rule--switch" data-rule="random">
+            <div class="rule__head rule__head--center">
+              <button class="switch" type="button" role="switch" aria-checked="false" data-switch="random" aria-label="Ativar randomização das questões"><span class="switch__knob"></span></button>
+              <button class="rule__toggle" type="button" aria-expanded="false" aria-controls="rule-rand-body">
+                <span class="rule__title">Randomização das questões da atividade</span>
+                <img class="rule__info" src="assets/prof-agenda/info.svg" width="20" height="20" alt="" title="Cada estudante recebe as questões em uma ordem diferente" />
+                <img class="rule__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+              </button>
+            </div>
+            <fieldset class="rule__body rule__body--indent rule__body--rand" id="rule-rand-body" hidden disabled data-switch-body="random">
+              <legend class="ag-muted">Questões em ordem aleatória para cada estudante.</legend>
+              <p class="ag-muted">Esta atividade possui <strong id="rand-total">10 questões</strong></p>
+              <div class="rand-fields">
+                <div class="field" data-field="rand-qtd">
+                  <label class="field__label" for="f-rand-qtd">Quantidade aleatória</label>
+                  <input class="input" id="f-rand-qtd" name="randQtd" type="number" min="1" max="10" step="1" placeholder="00" inputmode="numeric" aria-describedby="f-rand-qtd-hint f-rand-qtd-err" />
+                  <p class="field__error" id="f-rand-qtd-err" hidden></p>
+                  <p class="ag-hint" id="f-rand-qtd-hint">Quantas questões o estudante precisará responder</p>
+                </div>
+                <div class="field" data-field="rand-pont">
+                  <label class="field__label" for="f-rand-pont">Pontuação</label>
+                  <input class="input" id="f-rand-pont" name="randPont" type="number" min="1" max="10" step="0.5" placeholder="10" inputmode="decimal" aria-describedby="f-rand-pont-hint f-rand-pont-err" />
+                  <p class="field__error" id="f-rand-pont-err" hidden></p>
+                  <p class="ag-hint" id="f-rand-pont-hint">Pontuação máxima: 10</p>
+                </div>
+              </div>
+            </fieldset>
+          </section>
+        </div>
+      </section>
+
+      <p class="autosave" id="autosave">
+        <img src="assets/prof-agenda/cloud-done.svg" width="24" height="24" alt="" />
+        <span id="autosave-text">Salvo automaticamente às 12:22 em 12/05/26 por Alice Souza</span>
+      </p>
+    </form>
+  </main>
+
+  <div class="ag-bar">
+    <div class="container ag-bar__inner">
+      <button class="ag-back" type="button" id="btn-back">VOLTAR</button>
+      <div class="ag-bar__actions">
+        <button class="btn btn--outline-md ag-btn-lg" type="button" id="btn-draft" aria-disabled="true">SALVAR RASCUNHO</button>
+        <button class="btn btn--primary ag-btn-lg" type="submit" form="ag-form" id="btn-submit" aria-disabled="true">CRIAR ATIVIDADE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seletor de atividade (etapa 2) -->
+  <dialog class="modal picker" id="picker" aria-labelledby="picker-title">
+    <form method="dialog" class="picker__form" id="picker-form">
+      <header class="picker__head">
+        <h2 class="picker__title" id="picker-title">Adicione uma atividade</h2>
+        <button class="picker__close" type="button" data-close aria-label="Fechar"><img src="assets/prof-agenda/x.svg" width="20" height="20" alt="" /></button>
+      </header>
+      <div class="picker__body">
+        <label class="search">
+          <span class="visually-hidden">Buscar atividades</span>
+          <img class="search__icon" src="../shared/assets/search.svg" width="18" height="18" alt="" />
+          <input id="picker-search" type="search" placeholder="buscar" autocomplete="off" />
+        </label>
+        <fieldset class="picker__list-wrap">
+          <legend class="visually-hidden">Atividades disponíveis</legend>
+          <ul class="picker__list" id="picker-list"></ul>
+        </fieldset>
+      </div>
+      <footer class="picker__foot">
+        <button class="btn btn--text" type="button" data-close>CANCELAR</button>
+        <button class="btn btn--primary-sm" type="submit" id="picker-confirm" value="ok">ADICIONAR</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Prévia -->
+  <dialog class="modal picker" id="preview" aria-labelledby="preview-title">
+    <div class="picker__form">
+      <header class="picker__head">
+        <h2 class="picker__title" id="preview-title">Prévia do agendamento</h2>
+        <button class="picker__close" type="button" data-close aria-label="Fechar"><img src="assets/prof-agenda/x.svg" width="20" height="20" alt="" /></button>
+      </header>
+      <dl class="preview__list" id="preview-list"></dl>
+    </div>
+  </dialog>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="agendamento-turma.js"></script>
+</body>
+</html>

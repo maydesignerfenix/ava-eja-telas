@@ -1,0 +1,48 @@
+/* 5.2 Boletim individual do estudante — Figma 4170:108146 (desktop) / 4170:108291 (mobile) */
+
+.q-text { font-size: 14px; line-height: 1.45; color: var(--cx-text); }
+.be-student { display: flex; align-items: flex-start; gap: 12px; }
+.be-student__id { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; line-height: 1.45; }
+.be-student__name { font-weight: 700; font-size: 24px; color: var(--cx-text); }
+.be-student__meta { font-size: 14px; color: var(--cx-muted); }
+
+.be-section { font-weight: 700; font-size: 18px; line-height: 1.45; color: var(--cx-text); }
+
+.be-comps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.be-comp {
+  display: flex; flex-direction: column; gap: 6px; padding: 14px; text-align: left;
+  border: 1px solid var(--cx-border); border-radius: var(--radius); background: #fff;
+}
+.be-comp:hover { border-color: var(--sesi-pure); }
+.be-comp[aria-pressed="true"] { background: var(--cx-tint); border-color: var(--sesi-pure); }
+.be-comp__top { display: flex; align-items: flex-start; gap: 8px; font-weight: 700; }
+.be-comp__key { flex: 1 1 0; font-size: 14px; line-height: 1.45; color: var(--sesi-dark); }
+.be-comp__value { font-size: 22px; line-height: normal; color: var(--cx-text); white-space: nowrap; }
+.be-comp__status { font-size: 12px; line-height: 1.45; color: var(--cx-muted); }
+
+.be-columns { display: flex; gap: 24px; align-items: flex-start; }
+.be-main { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.be-side { flex: none; width: 370px; display: flex; flex-direction: column; gap: 16px; }
+
+.be-sum { padding: 16px; background: var(--cx-tint); font-weight: 700; font-size: 19px; line-height: 1.45; color: var(--sesi-dark); }
+.be-origin__label { font-weight: 700; font-size: 14px; line-height: 1.45; color: var(--cx-text); }
+.be-origin__text { font-size: 13px; line-height: 1.45; color: var(--cx-text); }
+.be-origin__muted { font-size: 13px; line-height: 1.45; color: var(--cx-muted); }
+.be-history { display: flex; flex-direction: column; gap: 16px; }
+.be-history li { font-size: 12px; line-height: 1.45; color: var(--cx-muted); }
+.cx-panel > .btn { align-self: flex-start; }
+.cx-orientation--warn { background: var(--cx-warn-bg); }
+
+.be-save { display: flex; align-items: flex-start; gap: 16px; }
+.be-save__state { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; line-height: 1.45; }
+.be-save__title { font-weight: 700; font-size: 14px; color: var(--sesi-dark); }
+.be-save__title.is-dirty { color: var(--cx-warn-fg); }
+
+@media (max-width: 1023.98px) {
+  .be-student { flex-direction: column; }
+  .be-comps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .be-columns { flex-direction: column; }
+  .be-side { width: 100%; }
+  .cx-panel > .btn { align-self: stretch; }
+  .be-save { flex-direction: column; align-items: stretch; }
+}

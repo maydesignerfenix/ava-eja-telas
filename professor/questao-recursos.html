@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar questão · Acessibilidade e fonte · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="questao-recursos.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container qrec">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep only-desktop" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="only-desktop"><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__parent"><a href="#">Questões e Atividades</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Criar questão</li>
+      </ol>
+    </nav>
+
+    <!-- Page title -->
+    <div class="qrec-title">
+      <div class="qrec-title__text">
+        <h1>Criar questão</h1>
+        <p>Crie uma questão para o banco de questões</p>
+      </div>
+      <a class="btn qrec-btn-outline" href="questao-previa.html">VISUALIZAR PRÉVIA</a>
+    </div>
+
+    <!-- Etapa 1 (concluída) – resumo -->
+    <section class="qcard qcard--summary" aria-labelledby="summary-title">
+      <div class="qcard__summary-row">
+        <div class="qstep">
+          <span class="qstep__badge qstep__badge--done" aria-hidden="true"><img src="assets/prof-qrec/check.svg" width="14" height="14" alt="" /></span>
+          <h2 id="summary-title" class="qstep__title">Configurações da questão <span class="visually-hidden">(etapa concluída)</span></h2>
+        </div>
+        <dl class="summary-fields" id="summary-fields">
+          <div class="summary-field">
+            <dt>Segmento / Etapa</dt>
+            <dd class="summary-field__value">EJA Regular - Ensino Médio</dd>
+          </div>
+          <div class="summary-field">
+            <dt>Competência e Habilidades</dt>
+            <dd class="badges">
+              <span class="qbadge qbadge--area">CN</span>
+              <span class="qbadge-group">
+                <span class="qbadge qbadge--area">C2</span><span class="qbadge qbadge--skill">h1</span><span class="qbadge qbadge--skill">h4</span><span class="qbadge qbadge--skill">h6</span>
+              </span>
+            </dd>
+          </div>
+          <div class="summary-field">
+            <dt>Marcadores</dt>
+            <dd class="badges badges--tight">
+              <span class="qbadge qbadge--marker">TESTE</span>
+              <span class="qbadge qbadge--marker">para outubro</span>
+            </dd>
+          </div>
+        </dl>
+        <button class="qcard__toggle" type="button" aria-expanded="true" aria-controls="summary-fields" aria-label="Mostrar ou ocultar configurações da questão" data-toggle="summary">
+          <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+        </button>
+      </div>
+    </section>
+
+    <!-- Etapa 2 – conteúdo -->
+    <section class="qcard qcard--content" aria-labelledby="content-title">
+      <div class="qcard__head">
+        <div class="qstep">
+          <span class="qstep__badge" aria-hidden="true">2</span>
+          <h2 id="content-title" class="qstep__title">Conteúdo da questão</h2>
+        </div>
+        <button class="qcard__toggle is-open" type="button" aria-expanded="true" aria-controls="content-body" aria-label="Recolher conteúdo da questão" data-toggle="content">
+          <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+        </button>
+      </div>
+
+      <div class="qcard__body" id="content-body">
+        <!-- Tipo de questão -->
+        <section class="qsection" aria-labelledby="tipo-title">
+          <h3 class="qsection__title" id="tipo-title">Tipo de questão</h3>
+          <div class="type-select">
+            <button class="type-select__button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="type-list" id="type-button">
+              <span class="type-select__icon"><img src="assets/prof-qrec/subject.svg" width="20" height="20" alt="" /></span>
+              <span class="type-select__text">
+                <span class="type-select__name" id="type-name">Aberta Longa</span>
+                <span class="type-select__desc" id="type-desc">Permite escrever uma resposta mais desenvolvida, com várias frases ou parágrafos.</span>
+              </span>
+              <img class="type-select__chev" src="assets/prof-qrec/select-arrow.svg" width="24" height="24" alt="" />
+            </button>
+            <ul class="type-select__list" id="type-list" role="listbox" aria-labelledby="tipo-title" hidden>
+              <li role="option" tabindex="-1" aria-selected="false" data-desc="Permite escrever uma resposta breve, com poucas palavras ou uma frase.">Aberta Curta</li>
+              <li role="option" tabindex="-1" aria-selected="true" data-desc="Permite escrever uma resposta mais desenvolvida, com várias frases ou parágrafos.">Aberta Longa</li>
+              <li role="option" tabindex="-1" aria-selected="false" data-desc="O estudante escolhe uma alternativa correta entre as opções apresentadas.">Múltipla escolha</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Enunciado -->
+        <section class="qsection" aria-labelledby="enunciado-title">
+          <div class="qsection__head">
+            <h3 class="qsection__title" id="enunciado-title">Enunciado</h3>
+            <p class="qsection__desc" id="enunciado-desc">Agora vamos criar a questão que será visualizada pelos estudantes</p>
+          </div>
+          <div class="editor" data-editor>
+            <div class="editor__toolbar" role="toolbar" aria-label="Formatação do enunciado"></div>
+            <img class="editor__divider" src="assets/prof-qrec/ed-divider.svg" width="1020" height="1" alt="" />
+            <div class="editor__content" id="enunciado" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="enunciado-title" aria-describedby="enunciado-desc" data-placeholder="Digite o enunciado da questão"></div>
+          </div>
+        </section>
+
+        <!-- Acessibilidade -->
+        <section class="qsection" aria-labelledby="acess-title">
+          <div class="qsection__head">
+            <h3 class="qsection__title" id="acess-title">Acessibilidade da questão</h3>
+            <p class="qsection__desc">Adicione formatos alternativos para tornar o conteúdo mais acessível a diferentes estudantes, como vídeos em Libras ou audiodescrição.</p>
+          </div>
+          <div class="resources" id="resources"></div>
+        </section>
+
+        <!-- Fonte -->
+        <section class="qsection qsection--fonte" aria-labelledby="fonte-title">
+          <h3 class="qsection__title" id="fonte-title">Fonte</h3>
+          <label class="select fonte-select">
+            <span class="visually-hidden">Fonte da questão</span>
+            <select id="fonte">
+              <option value="" selected>Selecione uma fonte</option>
+              <option value="enem">ENEM</option>
+              <option value="autoral">Autoral</option>
+              <option value="livro">Livro didático</option>
+              <option value="vestibular">Vestibular</option>
+              <option value="outra">Outra</option>
+            </select>
+            <img src="assets/prof-qrec/select-arrow.svg" width="24" height="24" alt="" />
+          </label>
+
+          <button class="ref-add" type="button" id="ref-add" hidden>
+            <img src="assets/prof-qrec/add.svg" width="20" height="20" alt="" /> Adicionar referência
+          </button>
+
+          <div class="ref" id="ref" hidden>
+            <p class="ref__label" id="ref-label">Referência</p>
+            <div class="editor editor--ref" data-editor>
+              <div class="editor__toolbar" role="toolbar" aria-label="Formatação da referência"></div>
+              <img class="editor__divider" src="assets/prof-qrec/ed-divider.svg" width="1020" height="1" alt="" />
+              <div class="editor__content" id="ref-text" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="ref-label" data-placeholder="Digite a referência"></div>
+            </div>
+            <div class="ref__actions">
+              <button class="ref-remove" type="button" id="ref-remove">
+                <img src="assets/prof-qrec/delete.svg" width="20" height="20" alt="" /> Remover referência
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <p class="autosave" aria-live="polite">
+      <img src="assets/prof-qrec/cloud-done.svg" width="24" height="24" alt="" />
+      <span id="autosave-text">Salvo automaticamente às 12:22 em 12/05/26 por Alice Souza</span>
+    </p>
+  </main>
+
+  <div class="qrec-actions">
+    <div class="container qrec-actions__inner">
+      <a class="btn qrec-btn-soft qrec-actions__cancel" href="#">CANCELAR</a>
+      <div class="qrec-actions__main">
+        <button class="btn qrec-btn-outline" type="button" id="save-draft">SALVAR RASCUNHO</button>
+        <button class="btn btn--primary qrec-actions__create" type="button" id="create" disabled>CRIAR QUESTÃO</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="questao-recursos.js"></script>
+</body>
+</html>

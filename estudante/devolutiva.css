@@ -1,0 +1,51 @@
+/* Estudante · Devolutiva corrigida — Figma 4166:99774 (desktop) / 4166:99877 (mobile) */
+
+.type-tile { flex: none; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--est-icon-tile); }
+
+/* Activity summary */
+.result-summary { display: flex; align-items: center; gap: 24px; padding: 24px; border-radius: var(--radius-lg); background: var(--sesi-tint); }
+.result-summary__id { flex: 1 1 0; min-width: 0; display: flex; align-items: flex-start; gap: 16px; }
+.result-summary__info { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.result-summary__title { font-weight: 700; font-size: 20px; line-height: 1.35; color: var(--sesi-dark); }
+.result-summary .badge { padding: 4px 10px; }
+
+.grade-box { flex: none; width: 190px; display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: var(--radius); background: var(--surface); }
+.grade-box__label { font-size: 14px; line-height: 20px; color: var(--text-strong); }
+.grade-box__value { font-weight: 700; font-size: 36px; line-height: normal; color: var(--sesi-darkest); }
+
+/* Teacher feedback */
+.feedback { display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: var(--radius); box-shadow: inset 0 0 0 1px var(--border-row); }
+.feedback__text { font-size: 16px; line-height: 1.5; color: var(--text-strong); }
+
+/* Answers */
+.answers { display: flex; flex-direction: column; gap: 16px; }
+.answers__list { display: flex; flex-direction: column; gap: 16px; }
+.question { display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: var(--radius); box-shadow: inset 0 0 0 1px var(--border-row); }
+.question__head { display: flex; align-items: center; gap: 12px; }
+.question__id { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.question__score { flex: none; font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--sesi-darkest); white-space: nowrap; }
+.question__score-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.question__prompt { font-size: 16px; line-height: 1.5; color: var(--text-strong); }
+.question__answers { display: flex; align-items: flex-start; gap: 16px; }
+.answer-box { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: var(--radius); background: var(--surface-subtle); font-size: 16px; line-height: 1.5; color: var(--text-strong); }
+.answer-box--feedback { background: var(--sesi-tint); }
+.answer-box__title { font-weight: 700; }
+
+/* Total */
+.total-row { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; box-shadow: inset 0 1px 0 var(--border-row); font-weight: 700; font-size: 16px; line-height: 1.5; white-space: nowrap; }
+.total-row__label { color: var(--est-total-label); }
+.total-row__value { color: var(--sesi-darkest); }
+
+.est-actions .btn--primary { height: 56px; }
+
+@media (max-width: 1023.98px) {
+  .result-summary { flex-direction: column; align-items: stretch; }
+  .grade-box { width: 100%; }
+  .feedback { padding: 16px; }
+  .question { padding: 16px; }
+  .question__head { flex-wrap: wrap; row-gap: 20px; }
+  .question__score { flex-basis: 100%; color: var(--text-strong); }
+  .question__score-label { position: static; width: auto; height: auto; overflow: visible; clip: auto; }
+  .question__answers { flex-direction: column; align-items: stretch; }
+  .est-actions { gap: 16px; }
+}

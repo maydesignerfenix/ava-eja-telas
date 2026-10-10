@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boletim da turma · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="correcao-comum.css" />
+  <link rel="stylesheet" href="boletim-turma.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container cx cx-page">
+    <div class="cx-teacher-menu">
+      <button type="button" aria-haspopup="menu">☰ Menu do professor</button>
+      <span>professor001@teste.com</span>
+    </div>
+
+    <div class="cx-path">
+      <nav class="breadcrumb" aria-label="Você está em">
+        <ol>
+          <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li><a href="#">Turmas</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__current" aria-current="page">Anos Finais - AF</li>
+        </ol>
+      </nav>
+      <p class="cx-path__sub"><a href="correcao-atividades.html">Atividades</a> › Boletim da turma</p>
+    </div>
+
+    <section class="cx-class" aria-label="Turma">
+      <div class="cx-class__titles">
+        <p class="cx-class__title">Anos Finais - AF</p>
+        <p class="cx-class__subtitle">EJA</p>
+      </div>
+      <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+    </section>
+
+    <nav class="cx-tabs" aria-label="Seções da turma">
+      <a class="cx-tab" href="#">Conteúdos</a>
+      <a class="cx-tab" href="#">Mural</a>
+      <a class="cx-tab" href="turma-atividades.html" aria-current="page">Atividades</a>
+    </nav>
+
+    <div class="cx-title">
+      <div class="cx-title__text">
+        <h1>Boletim da turma</h1>
+        <p>Consulte o desempenho e registre avaliações por competência. Turma já selecionada.</p>
+      </div>
+    </div>
+
+    <div class="filters" role="search">
+      <div class="cx-field">
+        <label class="cx-field__label" for="f-area">Área do conhecimento</label>
+        <span class="cx-select">
+          <select id="f-area">
+            <option value="Linguagens">Linguagens</option>
+            <option value="Matemática">Matemática</option>
+            <option value="Ciências da Natureza">Ciências da Natureza</option>
+            <option value="Ciências Humanas">Ciências Humanas</option>
+          </select>
+          <img src="assets/prof-correcao/chevron-down.svg" width="12" height="12" alt="" />
+        </span>
+      </div>
+      <div class="cx-field">
+        <label class="cx-field__label" for="f-comp">Competência</label>
+        <span class="cx-select">
+          <select id="f-comp">
+            <option value="">Todas · C1 a C6</option>
+            <option value="c1">C1</option><option value="c2">C2</option><option value="c3">C3</option>
+            <option value="c4">C4</option><option value="c5">C5</option><option value="c6">C6</option>
+          </select>
+          <img src="assets/prof-correcao/chevron-down.svg" width="12" height="12" alt="" />
+        </span>
+      </div>
+      <div class="cx-field">
+        <label class="cx-field__label" for="f-busca">Buscar estudante</label>
+        <input class="cx-input" id="f-busca" type="search" placeholder="⌕ Nome do estudante" autocomplete="off" />
+      </div>
+      <div class="cx-field">
+        <label class="cx-field__label" for="f-situacao">Situação</label>
+        <span class="cx-select">
+          <select id="f-situacao">
+            <option value="">Todas as situações</option>
+            <option value="INCOMPLETO">Incompleto</option>
+            <option value="EM PROCESSO">Em processo</option>
+            <option value="CONCLUÍDO">Concluído</option>
+          </select>
+          <img src="assets/prof-correcao/chevron-down.svg" width="12" height="12" alt="" />
+        </span>
+      </div>
+    </div>
+
+    <section class="queue-summary" aria-label="Indicadores da turma">
+      <div class="stat"><p class="stat__label">MÉDIA DA TURMA</p><p class="stat__value" id="i-media">41</p><p class="stat__note" id="i-media-note">1 de 10 com avaliação completa</p></div>
+      <div class="stat"><p class="stat__label">EM PROCESSO</p><p class="stat__value" id="i-processo">1</p><p class="stat__note">Somatória abaixo de 60</p></div>
+      <div class="stat"><p class="stat__label">FALTA LANÇAR</p><p class="stat__value" id="i-falta">14</p><p class="stat__note">Competências × estudantes</p></div>
+      <div class="stat"><p class="stat__label">CERTIFICADAS</p><p class="stat__value" id="i-cc">3</p><p class="stat__note">CC pelo RDS</p></div>
+    </section>
+
+    <div class="cx-tabs" role="tablist" aria-label="Modo do boletim">
+      <button class="cx-tab" type="button" role="tab" id="tab-visao" aria-selected="true" aria-controls="panel-visao">Visão da turma</button>
+      <button class="cx-tab" type="button" role="tab" id="tab-lancar" aria-selected="false" aria-controls="panel-lancar">Lançar notas</button>
+    </div>
+
+    <section class="bol-panel" id="panel-visao" role="tabpanel" aria-labelledby="tab-visao">
+      <p class="cx-note">Escala 0–100 · Online até 40 + Presencial até 40 + Participação até 20 pontos.</p>
+      <p class="cx-orientation">“—” indica pendência, nunca zero. CC é competência certificada via RDS e não aceita lançamento manual. A somatória só aparece com a avaliação completa.</p>
+      <h2 class="bol-count" id="bol-count" aria-live="polite">10 estudantes · Exibindo 4 nesta página · Linguagens</h2>
+
+      <div class="matrix only-desktop">
+        <table class="matrix__table" id="matrix">
+          <thead>
+            <tr>
+              <th scope="col" class="col-name">ESTUDANTE</th>
+              <th scope="col" data-c="c1">C1</th><th scope="col" data-c="c2">C2</th><th scope="col" data-c="c3">C3</th>
+              <th scope="col" data-c="c4">C4</th><th scope="col" data-c="c5">C5</th><th scope="col" data-c="c6">C6</th>
+              <th scope="col" class="col-ep">EM PROCESSO</th><th scope="col" class="col-sum">SOMATÓRIA</th><th scope="col" class="col-sit">SITUAÇÃO</th>
+            </tr>
+          </thead>
+          <tbody id="matrix-body"></tbody>
+        </table>
+      </div>
+      <ul class="bol-cards only-mobile" id="cards" aria-label="Boletim por estudante"></ul>
+      <p class="cx-note" id="bol-empty" hidden>Nenhum estudante encontrado com esses filtros.</p>
+
+      <button class="btn btn--outline-sm bol-more" type="button" id="more">Ver mais 6 estudantes ›</button>
+      <p class="cx-caption" id="cc-origin"></p>
+    </section>
+
+    <section class="bol-panel" id="panel-lancar" role="tabpanel" aria-labelledby="tab-lancar" hidden>
+      <div class="launch-head">
+        <div id="launch-comp"></div>
+        <p class="cx-note">Online é calculado automaticamente a partir das atividades corrigidas. Registre presencial (0 a 40) e participação (0 a 20).</p>
+      </div>
+      <form class="launch" id="launch" novalidate>
+        <div class="launch__head only-desktop" aria-hidden="true">
+          <span>ESTUDANTE</span><span>ONLINE</span><span>PRESENCIAL</span><span>PARTICIPAÇÃO</span><span>NOTA</span>
+        </div>
+        <div id="launch-rows"></div>
+        <div class="launch__actions">
+          <p class="cx-caption" id="launch-status" aria-live="polite">Nenhuma alteração</p>
+          <button class="btn btn--outline-sm" type="button" id="launch-cancel">Descartar alterações</button>
+          <button class="btn btn--primary-sm" type="submit" id="launch-save" disabled>Salvar notas</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="cx-panel" aria-labelledby="register-title">
+      <h2 class="cx-panel__title" id="register-title">Registrar presencial e participação</h2>
+      <p class="q-text">Abra Lançar notas para registrar a competência da turma no mesmo modelo de Avaliações › Boletim. Online é calculado automaticamente; presencial e participação são registráveis.</p>
+      <div class="bol-actions">
+        <button class="btn btn--primary-sm" type="button" id="open-launch">Lançar notas da turma</button>
+        <button class="btn btn--outline-sm" type="button" id="export">Exportar planilha</button>
+      </div>
+    </section>
+
+    <a class="btn btn--outline-sm cx-back" href="correcao-atividades.html">← Atividades da turma</a>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="correcao-comum.js"></script>
+  <script src="boletim-turma.js"></script>
+</body>
+</html>

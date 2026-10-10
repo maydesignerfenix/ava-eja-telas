@@ -1,0 +1,21 @@
+[
+  { "title": "Avaliações · Agendamentos", "path": "professor/aval-agendamentos.html",
+    "area": "Professor", "flow": "Visão geral professor",
+    "states": [],
+    "figma": ["4139:37586", "4139:39257"] },
+  { "title": "Avaliações · Correções", "path": "professor/aval-correcoes.html",
+    "area": "Professor", "flow": "Visão geral professor",
+    "states": [{ "label": "Concluídas expandidas", "query": "?state=concluidas" }],
+    "figma": ["4139:38099", "4139:39760"] },
+  { "title": "Boletim · Visão da turma", "path": "professor/aval-boletim-turma.html",
+    "area": "Professor", "flow": "Visão geral professor",
+    "states": [],
+    "figma": ["4139:38544", "4139:40362"] },
+  { "title": "Boletim · Lançar notas", "path": "professor/aval-boletim-lancar-notas.html",
+    "area": "Professor", "flow": "Visão geral professor",
+    "states": [
+      { "label": "C2 selecionada", "query": "?c=C2" },
+      { "label": "Só quem falta lançar (C5)", "query": "?c=C5&state=pendentes" }
+    ],
+    "figma": ["4139:38917", "4139:40769"] }
+]

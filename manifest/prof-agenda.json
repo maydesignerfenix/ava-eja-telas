@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Atividades da turma",
+    "path": "professor/turma-atividades.html",
+    "area": "Professor",
+    "flow": "Gerenciar atividades para uma turma",
+    "states": [],
+    "figma": ["4148:58959", "4148:59584"]
+  },
+  {
+    "title": "Agendamentos da atividade",
+    "path": "professor/agendamento-lista.html",
+    "area": "Professor",
+    "flow": "Gerenciar atividades para uma turma",
+    "states": [
+      { "label": "Modal aberta", "query": "" },
+      { "label": "Modal fechada", "query": "?state=fechado" }
+    ],
+    "figma": ["4155:61415", "4155:61283"]
+  },
+  {
+    "title": "Agendar atividade na turma",
+    "path": "professor/agendamento-turma.html",
+    "area": "Professor",
+    "flow": "Gerenciar atividades para uma turma",
+    "states": [
+      { "label": "Etapa 1 · Online, toda turma", "query": "?etapa=1" },
+      { "label": "Etapa 2 (igual à 1 no Figma)", "query": "?etapa=2" },
+      { "label": "Etapa 3 · Selecionar atividade (vazio)", "query": "?etapa=3" },
+      { "label": "Etapa 4 · Impresso", "query": "?etapa=4" },
+      { "label": "Etapa 5 · Atividade selecionada", "query": "?etapa=5" },
+      { "label": "Etapa 6 · Regras (recolhidas)", "query": "?etapa=6" },
+      { "label": "Etapa 7 · Regras (abertas)", "query": "?etapa=7" }
+    ],
+    "figma": ["4155:61822", "4155:61990", "4155:62158", "4155:62870", "4159:73874", "4166:104851", "4166:105698", "4167:96489"]
+  }
+]

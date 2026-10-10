@@ -1,0 +1,29 @@
+/* Professor · Avaliações – shared bits for the "aval-" pages
+   (page heading, 2-column tabs). Page-specific styles live in each page CSS. */
+
+.aval-heading { margin-top: 24px; }
+.aval-heading h1 { font-weight: 700; font-size: 32px; line-height: 44px; color: var(--sesi-dark); }
+
+/* Agendamentos | Correções – base .tabs is a 3-column grid */
+.tabs.tabs--2 { grid-template-columns: repeat(2, 1fr); }
+.tabs--2 .tab:hover { color: var(--sesi-darkest); }
+
+/* Toolbar shared by Agendamentos and Correções */
+.aval-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.aval-toolbar__count { flex: 0 1 355px; font-weight: 700; font-size: 18px; line-height: 44px; color: var(--text-strong); }
+.aval-toolbar__controls { display: flex; align-items: center; gap: 24px; flex: 0 1 761px; min-width: 0; }
+.aval-toolbar .search { flex: 1 1 555px; }
+.aval-toolbar .btn--outline-md { width: 182px; flex: none; }
+
+.empty-state { padding: 48px 0; text-align: center; color: var(--text-lighter); font-size: 14px; }
+
+@media (max-width: 1023.98px) {
+  .aval-heading { margin-top: 24px; }
+  .aval-heading h1 { font-size: 28px; line-height: 36px; }
+  .tabs.tabs--2 { margin-top: 26px; }
+  .aval-toolbar { flex-direction: column; align-items: stretch; gap: 16px; }
+  .aval-toolbar__count { flex: none; line-height: 28px; }
+  .aval-toolbar__controls { flex: none; gap: 12px; }
+  .aval-toolbar .search { flex: 1 1 0; }
+  .aval-toolbar .btn--outline-md { width: auto; padding: 0 16px; }
+}

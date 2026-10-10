@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Correção por estudante · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="correcao-comum.css" />
+  <link rel="stylesheet" href="correcao-correcao.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container cx cx-page">
+    <div class="cx-teacher-menu">
+      <button type="button" aria-haspopup="menu">☰ Menu do professor</button>
+      <span>professor001@teste.com</span>
+    </div>
+
+    <div class="cx-path">
+      <nav class="breadcrumb" aria-label="Você está em">
+        <ol>
+          <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li><a href="#">Turmas</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__current" aria-current="page">Anos Finais - AF</li>
+        </ol>
+      </nav>
+      <p class="cx-path__sub"><a href="correcao-atividades.html">Atividades</a> › Correção › Por estudante</p>
+    </div>
+
+    <section class="cx-class" aria-label="Turma">
+      <div class="cx-class__titles">
+        <p class="cx-class__title">Anos Finais - AF</p>
+        <p class="cx-class__subtitle">EJA</p>
+      </div>
+    </section>
+
+    <nav class="cx-tabs" aria-label="Seções da turma">
+      <a class="cx-tab" href="#">Conteúdos</a>
+      <a class="cx-tab" href="#">Mural</a>
+      <a class="cx-tab" href="turma-atividades.html" aria-current="page">Atividades</a>
+    </nav>
+
+    <section class="corr-context" aria-labelledby="page-title">
+      <div class="corr-return">
+        <a class="corr-return__link" href="correcao-atividades.html" data-guard>← Voltar à fila de Correções</a>
+        <p class="cx-caption">Origem: Avaliações › Correções · SESI Ipiranga</p>
+      </div>
+      <div class="cx-title">
+        <div class="cx-title__text">
+          <h1 id="page-title">Correção da atividade</h1>
+          <p>Turma, atividade e agendamento preservados durante a correção.</p>
+        </div>
+      </div>
+      <div class="corr-selects" id="corr-selects"></div>
+      <p class="cx-caption" id="corr-meta"></p>
+      <nav class="cx-tabs" aria-label="Modo de correção">
+        <a class="cx-tab" id="mode-estudante" aria-current="page" href="#">Por estudante</a>
+        <a class="cx-tab" id="mode-questao" href="correcao-questao.html" data-guard>Por questão</a>
+      </nav>
+    </section>
+
+    <div class="corr-workspace" id="workspace">
+      <aside class="corr-aside" aria-label="Fila de estudantes">
+        <div class="cx-panel" id="queue"></div>
+        <p class="cx-orientation only-desktop">Ao trocar de estudante ou modo, salve ou descarte as alterações antes de continuar.</p>
+      </aside>
+
+      <div class="corr-main" id="attempt">
+        <div class="attempt-head">
+          <h2 class="attempt-head__name" id="student-name"></h2>
+          <p class="attempt-head__meta" id="student-meta"></p>
+          <span class="cx-chip" id="student-chip"></span>
+        </div>
+        <form id="grading" novalidate>
+          <div class="corr-questions" id="questions"></div>
+        </form>
+        <section class="cx-panel" aria-labelledby="summary-title" id="summary"></section>
+        <div class="corr-actions">
+          <button class="btn btn--outline-sm" type="button" id="save-draft">Salvar rascunho</button>
+          <button class="btn btn--primary-sm" type="button" id="save-next">Salvar e próximo</button>
+        </div>
+        <p class="cx-caption" id="next-note"></p>
+        <section class="cx-panel" aria-labelledby="publish-title" id="publish"></section>
+        <p class="cx-orientation only-mobile">Ao trocar de estudante ou modo, salve ou descarte as alterações antes de continuar.</p>
+        <a class="btn btn--outline-sm cx-back" href="correcao-atividades.html" data-guard>← Atividades da turma</a>
+      </div>
+    </div>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="correcao-comum.js"></script>
+  <script src="correcao-estudante.js"></script>
+</body>
+</html>

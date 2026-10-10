@@ -1,0 +1,83 @@
+/* Estudante · acompanhamento (group est-acomp)
+   Shared by atividades.html, devolutiva.html, boletim.html, planejar-estudos.html.
+   Figma: 4166:99560/99666, 4166:99774/99877, 4166:99981/100136, 4157:65292/65746 */
+
+:root {
+  --est-icon-tile: #e0e6e2;        /* question-type / activity-type tile */
+  --est-pending: #805e19;          /* "Em processo" text */
+  --est-total-label: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   Page frame: Figma content column is a 24px-gap stack, 48px bottom padding.
+   -------------------------------------------------------------------------- */
+.est-page { display: flex; flex-direction: column; gap: 24px; padding: 24px 0 48px; }
+.est-page > * { min-width: 0; }
+.est-page .breadcrumb { margin-top: 0; }
+.est-page .breadcrumb ol { gap: 8px 12px; }
+.est-page .breadcrumb__trail { margin-left: -4px; color: var(--text-gray); white-space: pre; }
+.est-page .breadcrumb__trail a { color: inherit; }
+.est-page .breadcrumb__trail a:hover, .est-page .breadcrumb a:hover { text-decoration: underline; }
+
+/* Class context header (Figma: 28px / 1.35, actions gap 8) */
+.est-page .class-header { margin-top: 0; }
+.est-page .class-header__title { font-size: 28px; line-height: 1.35; }
+.est-page .class-header__actions { gap: 8px; flex-wrap: wrap; }
+
+/* Tabs (Figma: label + 12px gap + 2/4px indicator) */
+.est-page .tabs { margin-top: 0; }
+.est-page .tab { line-height: normal; padding-bottom: 12px; border-bottom-width: 2px; }
+.est-page .tab.is-active, .est-page .tab[aria-current="page"] { padding-bottom: 12px; border-bottom-width: 4px; }
+.est-page .tabs { align-items: start; }
+
+/* Back link ("Retorno") */
+.back-link { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font-size: 14px; line-height: 20px; color: var(--sesi-dark); }
+.back-link:hover { text-decoration: underline; }
+.back-link__icon { position: relative; flex: none; width: 18px; height: 18px; }
+.back-link__icon img { position: absolute; top: -0.9px; left: -1.186px; }
+
+/* Page heading */
+.est-heading { display: flex; align-items: center; gap: 16px; }
+.est-heading__text { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.est-heading h1 { font-weight: 700; font-size: 28px; line-height: 1.35; color: var(--sesi-dark); }
+.est-lead { font-size: 16px; line-height: 1.5; color: var(--text-gray); }
+.est-small { font-size: 14px; line-height: 20px; color: var(--text-gray); }
+.est-h2 { font-weight: 700; font-size: 20px; line-height: 1.35; color: var(--sesi-dark); }
+.est-strong { font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--text-strong); }
+
+.notice__icon { flex: none; }
+.notice__body { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+
+.est-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+/* Figma secondary-small buttons are 40px tall (border inside) */
+.est-page .btn--outline-sm { height: 40px; padding-block: 0; }
+.est-page .card { padding: 19px; }
+
+/* --------------------------------------------------------------------------
+   Student header & nav on mobile (Figma 390 frames): the account e-mail moves
+   to a second row and the main navigation stays visible. Shared chrome hides
+   both below 1024px, so the student variant is extended here.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023.98px) {
+  .container { width: min(var(--container), 100% - 40px); }
+
+  /* Figma "Marca e canal" (72px) + "Conta do estudante" (64px, centred, 40px icons) */
+  body[data-role="estudante"] .site-header { padding: 12px 20px; }
+  body[data-role="estudante"] .site-header__inner { flex-wrap: wrap; row-gap: 24px; }
+  body[data-role="estudante"] .brand { min-height: 48px; }
+  body[data-role="estudante"] .site-header__actions { width: 100%; justify-content: center; gap: 12px; }
+  body[data-role="estudante"] .site-header .account { gap: 8px; }
+  body[data-role="estudante"] .site-header__actions .only-desktop { display: block !important; }
+  body[data-role="estudante"] .site-header__actions .account__details.only-desktop { display: flex !important; }
+  body[data-role="estudante"] .site-header__actions .only-mobile { display: none !important; }
+  body[data-role="estudante"] .main-nav { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
+  body[data-role="estudante"] .main-nav a, body[data-role="estudante"] .main-nav button { height: 16px; line-height: 16px; }
+
+  .est-page .class-header { gap: 16px; margin-top: 0; }
+  .est-page .banner { display: block; } /* Figma keeps the decorative banner on mobile */
+  .est-heading { flex-direction: column; align-items: stretch; }
+  .est-heading > .btn { width: 100%; }
+  .est-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .est-actions .btn { width: 100%; }
+}

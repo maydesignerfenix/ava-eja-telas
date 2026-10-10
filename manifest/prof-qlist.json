@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Questões e Atividades · Listagem",
+    "path": "professor/questoes-lista.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [
+      { "label": "Aba Questões", "query": "?tab=questoes" },
+      { "label": "Aba Atividades", "query": "?tab=atividades" },
+      { "label": "Filtros abertos", "query": "?state=filtros" },
+      { "label": "Sem resultados", "query": "?state=vazio" },
+      { "label": "Página 2", "query": "?page=2" }
+    ],
+    "figma": ["4139:41144", "4139:51368", "4139:41825", "4139:52049"]
+  },
+  {
+    "title": "Criar questão · Etapa 1",
+    "path": "professor/questoes-criar-etapa-1.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [
+      { "label": "Vazio", "query": "?state=vazio" },
+      { "label": "Preenchido", "query": "?state=preenchido" },
+      { "label": "Erros de validação", "query": "?state=erros" },
+      { "label": "Etapa 1 recolhida", "query": "?state=recolhido" }
+    ],
+    "figma": ["4139:42341", "4139:42427"]
+  }
+]

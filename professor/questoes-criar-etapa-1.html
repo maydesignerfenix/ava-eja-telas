@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar questão · Etapa 1 · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="questoes-criar-etapa-1.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="qc1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Você está em">
+        <ol>
+          <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li><a href="#">Avaliações</a></li>
+          <li class="breadcrumb__sep only-desktop" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="only-desktop"><a href="questoes-lista.html">Questões e Atividades</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__current" aria-current="page">Criar questão</li>
+        </ol>
+      </nav>
+
+      <div class="qc1__head">
+        <div class="qc1__titles">
+          <h1 class="qc1__title">Criar questão</h1>
+          <p class="qc1__subtitle">Crie uma questão para o banco de questões</p>
+        </div>
+        <button class="btn qc1__btn-outline" type="button" id="btn-preview" aria-disabled="true" title="Disponível após preencher o conteúdo da questão">VISUALIZAR PRÉVIA</button>
+      </div>
+
+      <form class="qc1__form" id="form" novalidate>
+        <!-- Etapa 1 -->
+        <section class="qstep is-open" id="step-1" aria-labelledby="step-1-title">
+          <h2 class="qstep__heading">
+            <button class="qstep__toggle" type="button" id="step-1-toggle" aria-expanded="true" aria-controls="step-1-body">
+              <span class="qstep__num qstep__num--active" aria-hidden="true">1</span>
+              <span class="qstep__title" id="step-1-title"><span class="visually-hidden">Etapa 1: </span>Configurações da questão</span>
+              <img class="qstep__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+            </button>
+          </h2>
+
+          <div class="qstep__body" id="step-1-body">
+            <p class="qc1__summary" id="error-summary" role="alert" hidden></p>
+            <div class="qfields">
+              <div class="qfield-row">
+                <div class="qfield" data-field="segmento">
+                  <label class="qfield__label" for="segmento">Segmento / Etapa <span class="qfield__req" aria-hidden="true">*</span></label>
+                  <span class="select"><select id="segmento" name="segmento" required aria-describedby="segmento-error">
+                    <option value="" selected>Selecione</option>
+                    <option value="eja-ai">EJA - Anos Iniciais</option>
+                    <option value="eja-af">EJA - Anos Finais</option>
+                    <option value="eja-em">EJA - Ensino Médio</option>
+                  </select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+                  <p class="field__error" id="segmento-error"></p>
+                </div>
+                <div class="qfield qfield--readonly" data-field="matriz">
+                  <label class="qfield__label" for="matriz">Matriz Utilizada</label>
+                  <span class="select"><select id="matriz" name="matriz" disabled>
+                    <option value="sesi" selected>SESI</option>
+                  </select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+                </div>
+              </div>
+
+              <div class="qfield" data-field="area">
+                <label class="qfield__label" for="area">Área do conhecimento <span class="qfield__req" aria-hidden="true">*</span></label>
+                <span class="select"><select id="area" name="area" required aria-describedby="area-error">
+                  <option value="" selected>Selecione</option>
+                </select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+                <p class="field__error" id="area-error"></p>
+              </div>
+
+              <div class="qfield" data-field="competencia">
+                <label class="qfield__label" for="competencia">Competência <span class="qfield__req" aria-hidden="true">*</span></label>
+                <span class="select"><select id="competencia" name="competencia" required disabled aria-describedby="competencia-error">
+                  <option value="" selected>Selecione</option>
+                </select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+                <p class="field__error" id="competencia-error"></p>
+              </div>
+
+              <div class="qfield" data-field="habilidade">
+                <label class="qfield__label" for="habilidade">Habilidade <span class="qfield__req" aria-hidden="true">*</span></label>
+                <span class="select"><select id="habilidade" name="habilidade" required disabled aria-describedby="habilidade-error">
+                  <option value="" selected>Selecione</option>
+                </select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+                <p class="field__error" id="habilidade-error"></p>
+              </div>
+
+              <div class="qfield" data-field="nivel">
+                <label class="qfield__label" for="nivel">Nível de dificuldade <span class="qfield__req" aria-hidden="true">*</span></label>
+                <span class="select"><select id="nivel" name="nivel" required aria-describedby="nivel-error">
+                  <option value="" selected>Selecione</option>
+                  <option value="facil">Fácil</option>
+                  <option value="medio">Médio</option>
+                  <option value="dificil">Difícil</option>
+                </select><img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" /></span>
+                <p class="field__error" id="nivel-error"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Etapa 2 (próxima página) -->
+        <section class="qstep qstep--next" aria-labelledby="step-2-title">
+          <h2 class="qstep__heading">
+            <a class="qstep__toggle" href="questao-criar-etapa-2.html" id="step-2-link" aria-disabled="true">
+              <span class="qstep__num" aria-hidden="true">2</span>
+              <span class="qstep__title" id="step-2-title"><span class="visually-hidden">Etapa 2: </span>Conteúdo da questão</span>
+              <img class="qstep__chevron" src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+            </a>
+          </h2>
+        </section>
+
+        <p class="autosave" id="autosave" role="status" aria-live="polite">
+          <img src="assets/prof-qlist/cloud-done.svg" width="24" height="24" alt="" />
+          <span id="autosave-text">Salvo automaticamente</span>
+        </p>
+      </form>
+    </div>
+
+    <div class="qc1__bar">
+      <div class="container qc1__bar-inner">
+        <a class="btn qc1__btn-back" href="questoes-lista.html">VOLTAR</a>
+        <div class="qc1__bar-actions">
+          <button class="btn qc1__btn-outline" type="button" id="btn-draft" aria-disabled="true">SALVAR RASCUNHO</button>
+          <button class="btn btn--primary qc1__btn-next" type="submit" form="form" id="btn-next" aria-disabled="true">CRIAR QUESTÃO</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="questoes-criar-etapa-1.js"></script>
+</body>
+</html>

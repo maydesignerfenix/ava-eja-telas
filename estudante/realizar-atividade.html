@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Realizar atividade · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="realizar-atividade.css" />
+</head>
+<body data-role="estudante" data-header="none" data-nav="none" data-footer="none">
+  <!-- Reduced header (Figma: logo + channel only, no account/nav) -->
+  <header class="ra-header">
+    <div class="ra-header__inner">
+      <a class="ra-brand" href="../index.html" aria-label="SESI Educação – início">
+        <img src="../shared/assets/logo-sesi.svg" width="191.001" height="43" alt="" />
+        <span class="ra-brand__divider" aria-hidden="true"><img src="../shared/assets/header-divider.svg" width="40" height="1" alt="" /></span>
+        <span class="ra-brand__channel">
+          <span class="ra-brand__title">Educação</span>
+          <span class="ra-brand__subtitle">Ambiente do Gestor</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main class="ra" id="ra" data-screen="inicio">
+    <!-- Activity summary -->
+    <section class="ra-summary" aria-label="Resumo da atividade">
+      <div class="ra-summary__id">
+        <p class="ra-summary__eyebrow">Atividade</p>
+        <h1 class="ra-summary__title">Leitura e interpretação de textos do cotidiano</h1>
+      </div>
+      <div class="ra-summary__meta">
+        <p class="ra-summary__attempt">Tentativa 1/3</p>
+        <p class="ra-summary__duration">
+          <img class="only-desktop" src="assets/est-realizar/alarm.svg" width="20" height="20" alt="" />
+          <img class="only-mobile" src="assets/est-realizar/alarm-mobile.svg" width="17" height="16" alt="" />
+          Sem tempo de duração
+        </p>
+      </div>
+    </section>
+
+    <!-- Start screen -->
+    <section class="ra-intro" data-view="inicio" aria-labelledby="intro-title">
+      <div class="ra-intro__text">
+        <h2 id="intro-title" class="ra-intro__title">Vamos começar a atividade?</h2>
+        <p class="ra-intro__lead">Esta atividade foi preparada especialmente para você praticar suas habilidades. As questões propostas nessa atividade são importantes para fundamentar seus estudos posteriores.</p>
+      </div>
+      <button class="btn btn--primary ra-intro__cta" type="button" data-action="start">INICIAR</button>
+    </section>
+
+    <!-- Finished screen -->
+    <section class="ra-intro ra-done" data-view="finalizada" aria-labelledby="done-title" hidden>
+      <div class="ra-done__art" aria-hidden="true">
+        <img src="assets/est-realizar/party-hat.png" width="115.07" height="115.07" alt="" />
+      </div>
+      <div class="ra-intro__text">
+        <h2 id="done-title" class="ra-intro__title" tabindex="-1">Parabéns!<br />Você finalizou esta atividade!</h2>
+        <p class="ra-intro__lead">Suas atividade foi enviada para correção e quando for corrigida, você poderá ver sua nota no boletim. </p>
+      </div>
+      <a class="btn btn--primary ra-intro__cta" href="atividades.html">VER ATIVIDADES</a>
+    </section>
+
+    <!-- Accessibility: mobile bar / desktop side tab -->
+    <button class="ra-a11y-toggle" type="button" data-view="question" aria-expanded="false" aria-controls="a11y-panel" hidden>
+      <img class="only-mobile" src="assets/est-realizar/a11y-toggle.svg" width="20" height="23" alt="" />
+      <img class="only-desktop" src="assets/est-realizar/a11y-tab.svg" width="24" height="24" alt="" />
+      <span class="ra-a11y-toggle__label">Recursos de acessibilidade</span>
+    </button>
+
+    <!-- Question -->
+    <form class="ra-question" data-view="question" id="question-form" hidden>
+      <fieldset>
+        <legend class="ra-question__stem" id="question-stem" tabindex="-1"></legend>
+        <div class="ra-options" id="question-options"></div>
+      </fieldset>
+    </form>
+
+    <!-- Accessibility resources panel -->
+    <aside class="ra-a11y" id="a11y-panel" aria-labelledby="a11y-title" hidden>
+      <div class="ra-a11y__head">
+        <img class="only-desktop" src="assets/est-realizar/a11y-tab.svg" width="24" height="24" alt="" />
+        <img class="only-mobile" src="assets/est-realizar/a11y.svg" width="18" height="21" alt="" />
+        <h2 class="ra-a11y__title" id="a11y-title">Recursos de acessibilidade</h2>
+        <button class="ra-a11y__close" type="button" data-action="a11y-close" aria-label="Fechar recursos de acessibilidade">
+          <img class="only-desktop" src="assets/est-realizar/close-small.svg" width="24" height="24" alt="" />
+          <img class="only-mobile" src="assets/est-realizar/a11y-close.svg" width="12" height="12" alt="" />
+        </button>
+      </div>
+      <ul class="ra-a11y__list">
+        <li class="ra-res">
+          <p class="ra-res__id">
+            <span class="ra-res__icon only-desktop"><img src="assets/est-realizar/d-select-to-speak.svg" width="24" height="24" alt="" /></span>
+            <img class="only-mobile" src="assets/est-realizar/icon-audio.svg" width="32" height="32" alt="" />
+            <span>Leitura em áudio</span>
+          </p>
+          <div class="ra-audio" data-audio>
+            <audio preload="none" src="assets/est-realizar/audio-placeholder.wav"></audio>
+            <div class="ra-audio__timeline">
+              <div class="ra-wave" aria-hidden="true"></div>
+              <p class="ra-audio__time"><span data-current>00:00</span><span>05:30</span></p>
+            </div>
+            <button class="ra-play" type="button" aria-label="Reproduzir leitura em áudio" aria-pressed="false">
+              <span class="ra-play__d only-desktop"><img src="assets/est-realizar/d-play-arrow.svg" width="20" height="20" alt="" /></span>
+              <img class="only-mobile" src="assets/est-realizar/play-audio.svg" width="38" height="38" alt="" />
+            </button>
+          </div>
+        </li>
+        <li class="ra-res">
+          <p class="ra-res__id">
+            <span class="ra-res__icon only-desktop"><img src="assets/est-realizar/d-audio-description.svg" width="24" height="24" alt="" /></span>
+            <img class="only-mobile" src="assets/est-realizar/icon-audiodescricao.svg" width="32" height="32" alt="" />
+            <span>Audiodescrição</span>
+          </p>
+          <div class="ra-audio" data-audio>
+            <audio preload="none" src="assets/est-realizar/audio-placeholder.wav"></audio>
+            <div class="ra-audio__timeline">
+              <div class="ra-wave" aria-hidden="true"></div>
+              <p class="ra-audio__time"><span data-current>00:00</span><span>05:30</span></p>
+            </div>
+            <button class="ra-play" type="button" aria-label="Reproduzir audiodescrição" aria-pressed="false">
+              <span class="ra-play__d only-desktop"><img src="assets/est-realizar/d-play-arrow.svg" width="20" height="20" alt="" /></span>
+              <img class="only-mobile" src="assets/est-realizar/play-audio.svg" width="38" height="38" alt="" />
+            </button>
+          </div>
+        </li>
+        <li class="ra-res">
+          <p class="ra-res__id">
+            <span class="ra-res__icon only-desktop"><img src="assets/est-realizar/d-slideshow.svg" width="24" height="24" alt="" /></span>
+            <img class="only-mobile" src="assets/est-realizar/icon-video.svg" width="32" height="32" alt="" />
+            <span>Apresentação em vídeo</span>
+          </p>
+          <div class="ra-video">
+            <video preload="none" playsinline controls aria-label="Apresentação em vídeo da questão"></video>
+          </div>
+        </li>
+        <li class="ra-res">
+          <p class="ra-res__id">
+            <span class="ra-res__icon only-desktop"><img src="assets/est-realizar/d-sign-language.svg" width="24" height="24" alt="" /></span>
+            <img class="only-mobile" src="assets/est-realizar/icon-libras.svg" width="32" height="32" alt="" />
+            <span>Vídeo Libras / Linguagem de Sinais</span>
+          </p>
+          <div class="ra-video ra-video--poster" data-video>
+            <video preload="none" playsinline poster="assets/est-realizar/libras-poster.png" aria-label="Vídeo em Libras da questão"></video>
+            <button class="ra-video__play" type="button" aria-label="Reproduzir vídeo em Libras">
+              <span class="ra-play__d ra-play__d--wide only-desktop"><img src="assets/est-realizar/d-play-arrow.svg" width="20" height="20" alt="" /></span>
+              <img class="only-mobile" src="assets/est-realizar/play-video.svg" width="40" height="40" alt="" />
+            </button>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Question navigation -->
+    <nav class="ra-nav" data-view="question" aria-label="Navegação da atividade" hidden>
+      <p class="ra-nav__count" id="question-count" aria-live="polite">Questão 1/3</p>
+      <div class="ra-nav__prev">
+        <button class="btn ra-btn-outline" type="button" data-action="prev">ANTERIOR</button>
+      </div>
+      <div class="ra-nav__next">
+        <button class="btn ra-btn-outline" type="button" data-action="review">REVISAR</button>
+        <button class="btn btn--primary" type="button" data-action="next" aria-describedby="next-hint">PRÓXIMA</button>
+        <button class="btn btn--primary" type="button" data-action="finish">FINALIZAR</button>
+      </div>
+      <p class="visually-hidden" id="next-hint">Selecione uma alternativa para continuar.</p>
+    </nav>
+  </main>
+
+  <!-- Review answers -->
+  <dialog class="modal ra-review" id="review-dialog" aria-labelledby="review-title">
+    <div class="ra-review__head">
+      <h2 class="ra-review__title" id="review-title">Revisar respostas</h2>
+      <button class="ra-review__close" type="button" data-action="review-close" aria-label="Fechar revisão">
+        <img src="assets/est-realizar/close.svg" width="20" height="20" alt="" />
+      </button>
+    </div>
+    <ol class="ra-review__list" id="review-list"></ol>
+    <div class="ra-review__foot">
+      <button class="btn btn--primary" type="button" data-action="finish">FINALIZAR</button>
+    </div>
+  </dialog>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="realizar-atividade.js"></script>
+</body>
+</html>

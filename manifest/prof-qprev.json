@@ -1,0 +1,20 @@
+[{
+  "title": "Criar questão · Visualizar prévia",
+  "path": "professor/questao-previa.html",
+  "area": "Professor",
+  "flow": "Construir a base para atividades",
+  "states": [
+    { "label": "Resumo concluído (prévia fechada)", "query": "?tipo=multipla-escolha&state=resumo" },
+    { "label": "Prévia · Múltipla escolha, recursos fechados", "query": "?tipo=multipla-escolha&state=recursos" },
+    { "label": "Prévia · Recursos de acessibilidade abertos", "query": "?tipo=multipla-escolha&state=recursos-abertos" },
+    { "label": "Prévia · Áudios e vídeos expandidos", "query": "?tipo=multipla-escolha&state=midias" },
+    { "label": "Prévia · Ordenação", "query": "?tipo=ordenacao&state=recursos" },
+    { "label": "Prévia · Correlação", "query": "?tipo=correlacao&state=recursos" },
+    { "label": "Prévia · Resposta curta", "query": "?tipo=resposta-curta&state=recursos" },
+    { "label": "Prévia · Verdadeiro ou Falso", "query": "?tipo=verdadeiro-falso&state=recursos" },
+    { "label": "Prévia · Discursiva", "query": "?tipo=discursiva&state=recursos" }
+  ],
+  "figma": ["4139:49846", "4167:93158", "4139:49987", "4167:93333", "4139:50032", "4167:93390", "4139:50131", "4167:93458",
+            "4148:55384", "4167:93808", "4148:55452", "4167:93897", "4148:55494", "4167:93763", "4148:55517", "4167:93677",
+            "4148:55573", "4167:93632"]
+}]

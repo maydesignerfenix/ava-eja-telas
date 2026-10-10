@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boletim individual do estudante · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="correcao-comum.css" />
+  <link rel="stylesheet" href="boletim-estudante.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container cx cx-page">
+    <div class="cx-teacher-menu">
+      <button type="button" aria-haspopup="menu">☰ Menu do professor</button>
+      <span>professor001@teste.com</span>
+    </div>
+
+    <div class="cx-path">
+      <nav class="breadcrumb" aria-label="Você está em">
+        <ol>
+          <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li><a href="#">Turmas</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__current" aria-current="page">Anos Finais - AF</li>
+        </ol>
+      </nav>
+      <p class="cx-path__sub"><a href="correcao-atividades.html" data-guard>Atividades</a> › <a href="boletim-turma.html" data-guard>Boletim da turma</a> › <span id="path-name">Ana Beatriz Ramos</span></p>
+    </div>
+
+    <section class="cx-class" aria-label="Turma">
+      <div class="cx-class__titles">
+        <p class="cx-class__title">Anos Finais - AF</p>
+        <p class="cx-class__subtitle">EJA</p>
+      </div>
+      <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+    </section>
+
+    <nav class="cx-tabs" aria-label="Seções da turma">
+      <a class="cx-tab" href="#">Conteúdos</a>
+      <a class="cx-tab" href="#">Mural</a>
+      <a class="cx-tab" href="turma-atividades.html" aria-current="page" data-guard>Atividades</a>
+    </nav>
+
+    <a class="btn btn--outline-sm cx-back" href="boletim-turma.html" data-guard>← Voltar ao boletim da turma</a>
+
+    <div class="cx-title">
+      <div class="cx-title__text">
+        <h1>Boletim individual</h1>
+        <p>Consulte as origens e registre presencial e participação sem alterar a nota online.</p>
+      </div>
+    </div>
+
+    <section class="cx-panel" id="student" aria-label="Estudante"></section>
+
+    <h2 class="be-section" id="comps-title">Desempenho por competência · Linguagens</h2>
+    <div class="be-comps" id="comps" role="group" aria-labelledby="comps-title"></div>
+
+    <div class="be-columns">
+      <div class="be-main">
+        <div id="comp-select"></div>
+        <form class="cx-panel" id="composition" novalidate aria-labelledby="composition-title"></form>
+        <section class="cx-panel" id="complement" aria-labelledby="complement-title"></section>
+      </div>
+      <div class="be-side">
+        <section class="cx-panel" id="origin" aria-labelledby="origin-title"></section>
+        <section class="cx-panel" id="publication" aria-labelledby="publication-title"></section>
+        <section class="cx-panel" id="certs" aria-labelledby="certs-title"></section>
+      </div>
+    </div>
+
+    <p class="cx-orientation" id="pending-note"></p>
+
+    <div class="be-save">
+      <div class="be-save__state" aria-live="polite">
+        <p class="be-save__title" id="save-title">✓ Tudo salvo</p>
+        <p class="cx-caption" id="save-sub">Nenhuma alteração · Troca de estudante segura</p>
+      </div>
+      <button class="btn btn--primary-sm" type="button" id="save" disabled>Salvar alterações</button>
+      <a class="btn btn--primary-sm" id="next" href="#" data-guard>Próximo estudante ›</a>
+    </div>
+    <p class="cx-caption" id="next-note"></p>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="correcao-comum.js"></script>
+  <script src="boletim-estudante.js"></script>
+</body>
+</html>

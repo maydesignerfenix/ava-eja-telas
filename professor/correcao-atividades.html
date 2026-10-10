@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atividades agendadas da turma · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="correcao-comum.css" />
+  <link rel="stylesheet" href="correcao-atividades.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container cx cx-page">
+    <div class="cx-teacher-menu">
+      <button type="button" aria-haspopup="menu">☰ Menu do professor</button>
+      <span>professor001@teste.com</span>
+    </div>
+
+    <div class="cx-path">
+      <nav class="breadcrumb" aria-label="Você está em">
+        <ol>
+          <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li><a href="#">Turmas</a></li>
+          <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+          <li class="breadcrumb__current" aria-current="page">Anos Finais - AF</li>
+        </ol>
+      </nav>
+      <p class="cx-path__sub"><a href="turma-atividades.html">Atividades</a> › Atividades agendadas</p>
+    </div>
+
+    <section class="cx-class" aria-label="Turma">
+      <div class="cx-class__titles">
+        <p class="cx-class__title">Anos Finais - AF</p>
+        <p class="cx-class__subtitle">EJA</p>
+      </div>
+      <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+    </section>
+
+    <nav class="cx-tabs" aria-label="Seções da turma">
+      <a class="cx-tab" href="#">Conteúdos</a>
+      <a class="cx-tab" href="#">Mural</a>
+      <a class="cx-tab" href="turma-atividades.html" aria-current="page">Atividades</a>
+    </nav>
+
+    <div class="cx-title">
+      <div class="cx-title__text">
+        <h1>Atividades agendadas da turma</h1>
+        <p>Acompanhe as entregas e priorize as respostas que precisam de correção.</p>
+      </div>
+      <a class="btn btn--outline-sm" href="boletim-turma.html">Boletim da turma</a>
+    </div>
+
+    <section class="queue-summary" aria-label="Resumo da fila de correção">
+      <div class="stat">
+        <p class="stat__label">AGENDAMENTOS COM PENDÊNCIA</p>
+        <p class="stat__value" id="stat-ag">2</p>
+        <p class="stat__note">Somente desta turma</p>
+      </div>
+      <div class="stat">
+        <p class="stat__label">RESPOSTAS MANUAIS SEM NOTA</p>
+        <p class="stat__value" id="stat-resp">14</p>
+        <p class="stat__note" id="stat-resp-note">8 estudantes nos 2 agendamentos</p>
+      </div>
+      <div class="stat">
+        <p class="stat__label">ESPERA MAIS LONGA</p>
+        <p class="stat__value" id="stat-wait">12 dias</p>
+        <p class="stat__note" id="stat-wait-note">Leitura e interpretação · Agendamento 01</p>
+      </div>
+    </section>
+
+    <div class="filters" role="search">
+      <div class="cx-field">
+        <label class="cx-field__label" for="busca">Buscar atividade ou agendamento</label>
+        <input class="cx-input" id="busca" type="search" placeholder="⌕ Buscar nesta turma" autocomplete="off" />
+      </div>
+      <div class="cx-field">
+        <label class="cx-field__label" for="situacao">Situação</label>
+        <span class="cx-select">
+          <select id="situacao">
+            <option value="">Todas as situações</option>
+            <option value="Em correção">Em correção</option>
+            <option value="Sem entregas">Sem entregas</option>
+            <option value="Corrigido">Corrigido</option>
+          </select>
+          <img src="assets/prof-correcao/chevron-down.svg" width="12" height="12" alt="" />
+        </span>
+      </div>
+      <div class="cx-field">
+        <label class="cx-field__label" for="ordem">Ordenar por</label>
+        <span class="cx-select">
+          <select id="ordem">
+            <option value="pendencias">Pendências · maior espera primeiro</option>
+            <option value="prazo">Prazo · mais recente primeiro</option>
+            <option value="atividade">Atividade · A a Z</option>
+          </select>
+          <img src="assets/prof-correcao/chevron-down.svg" width="12" height="12" alt="" />
+        </span>
+      </div>
+    </div>
+
+    <p class="cx-note" id="list-count" aria-live="polite">4 agendamentos · 3 atividades · Pendências primeiro</p>
+
+    <ul class="schedule-list" id="schedule-list" aria-label="Agendamentos da turma"></ul>
+    <p class="cx-note empty" id="empty" hidden>Nenhum agendamento encontrado com esses filtros.</p>
+
+    <p class="cx-orientation">Sem entrega não significa nota zero. A correção considera somente respostas enviadas; o estudante continua com entrega pendente.</p>
+
+    <a class="btn btn--outline-sm cx-back" href="turma-atividades.html">← Voltar às atividades da turma</a>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="correcao-comum.js"></script>
+  <script src="correcao-atividades.js"></script>
+</body>
+</html>

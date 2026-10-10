@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar questão · Etapa 2 · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="questao-criar-etapa-2.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container qc">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__parent"><a href="#">Questões e Atividades</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Criar questão</li>
+      </ol>
+    </nav>
+
+    <div class="qc-title">
+      <div class="qc-title__text">
+        <h1>Criar questão</h1>
+        <p>Crie uma questão para o banco de questões</p>
+      </div>
+      <a class="btn qc-btn-outline qc-preview" id="btn-preview" href="questao-previa.html" aria-disabled="true">VISUALIZAR PRÉVIA</a>
+    </div>
+
+    <form class="qc-form" id="qc-form" novalidate>
+      <!-- Etapa 1 (resumo) -->
+      <section class="qc-card qc-summary" aria-labelledby="sum-title">
+        <div class="qc-summary__row">
+          <div class="qc-summary__head">
+            <span class="qc-step qc-step--done" aria-hidden="true"><img src="assets/prof-qtipo/check.svg" width="14" height="14" alt="" /></span>
+            <h2 id="sum-title" class="qc-card__title">Configurações da questão</h2>
+          </div>
+          <dl class="qc-summary__fields" id="sum-fields">
+            <div class="qc-summary__field qc-summary__field--seg">
+              <dt>Segmento / Etapa</dt>
+              <dd class="qc-summary__value">EJA Regular - Ensino Médio</dd>
+            </div>
+            <div class="qc-summary__field qc-summary__field--comp">
+              <dt>Competência e Habilidades</dt>
+              <dd class="qc-tags">
+                <span class="qc-tag qc-tag--area">CN</span>
+                <span class="qc-tag-group"><span class="qc-tag qc-tag--area">C2</span><span class="qc-tag qc-tag--skill">h1</span><span class="qc-tag qc-tag--skill">h4</span><span class="qc-tag qc-tag--skill">h6</span></span>
+              </dd>
+            </div>
+            <div class="qc-summary__field qc-summary__field--tags">
+              <dt>Marcadores</dt>
+              <dd class="qc-tags qc-tags--sm"><span class="qc-tag qc-tag--marker">TESTE</span><span class="qc-tag qc-tag--marker">para outubro</span></dd>
+            </div>
+          </dl>
+          <a class="qc-toggle" href="questoes-criar-etapa-1.html" aria-label="Editar configurações da questão (Etapa 1)">
+            <img src="assets/prof-qtipo/arrow-down.svg" width="24" height="24" alt="" />
+          </a>
+        </div>
+      </section>
+
+      <!-- Etapa 2 -->
+      <section class="qc-card qc-content" aria-labelledby="content-title">
+        <div class="qc-content__head">
+          <span class="qc-step" aria-hidden="true">2</span>
+          <h2 id="content-title" class="qc-card__title">Conteúdo da questão</h2>
+          <button class="qc-toggle is-open" type="button" id="content-toggle" aria-expanded="true" aria-controls="content-body" aria-label="Recolher conteúdo da questão">
+            <img src="assets/prof-qtipo/arrow-down.svg" width="24" height="24" alt="" />
+          </button>
+        </div>
+
+        <div class="qc-content__body" id="content-body">
+          <!-- Tipo de questão -->
+          <div class="qc-block">
+            <h3 class="qc-block__title" id="tipo-label">Tipo de questão</h3>
+            <div class="qc-type" id="qc-type">
+              <button class="qc-type__button" type="button" id="tipo-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="tipo-label tipo-button-label" aria-controls="tipo-list">
+                <span class="qc-type__icon" id="tipo-icon" hidden></span>
+                <span class="qc-type__text" id="tipo-button-label">
+                  <span class="qc-type__name" id="tipo-name">Escolha um tipo de questão</span>
+                  <span class="qc-type__desc" id="tipo-desc">Permite selecionar apenas uma alternativa como resposta correta.</span>
+                </span>
+                <img class="qc-type__arrow" src="assets/prof-qtipo/arrow-down-select.svg" width="24" height="24" alt="" />
+              </button>
+              <ul class="qc-type__list" id="tipo-list" role="listbox" aria-labelledby="tipo-label" tabindex="-1" hidden></ul>
+            </div>
+            <p class="field__error" id="tipo-error" hidden>Escolha um tipo de questão.</p>
+          </div>
+
+          <!-- Enunciado + resposta -->
+          <div class="qc-block">
+            <div class="qc-block__head">
+              <h3 class="qc-block__title" id="enunciado-label">Enunciado</h3>
+              <p class="qc-block__desc">Agora vamos criar a questão que será visualizada pelos estudantes</p>
+            </div>
+            <div class="qc-editor" id="enunciado-editor">
+              <div class="qc-editor__toolbar" role="toolbar" aria-label="Formatação do enunciado" aria-controls="enunciado">
+                <div class="qc-editor__groups">
+                  <div class="qc-editor__group">
+                    <button type="button" data-cmd="bold" aria-label="Negrito"><img src="assets/prof-qtipo/ed-bold.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="italic" aria-label="Itálico"><img src="assets/prof-qtipo/ed-italic.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="underline" aria-label="Sublinhado"><img src="assets/prof-qtipo/ed-underline.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="removeFormat" aria-label="Mais opções de texto"><img src="assets/prof-qtipo/ed-text-more.svg" width="24" height="24" alt="" /></button>
+                  </div>
+                  <div class="qc-editor__group">
+                    <button type="button" data-cmd="justifyLeft" aria-label="Alinhar à esquerda"><img src="assets/prof-qtipo/ed-paragraph.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="justifyCenter" aria-label="Centralizar"><img src="assets/prof-qtipo/ed-align-center.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="insertOrderedList" aria-label="Lista numerada"><img src="assets/prof-qtipo/ed-ordered-list.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="formatBlock" aria-label="Mais opções de parágrafo"><img src="assets/prof-qtipo/ed-paragraph-more.svg" width="24" height="24" alt="" /></button>
+                  </div>
+                  <div class="qc-editor__group">
+                    <button type="button" data-cmd="createLink" aria-label="Inserir link"><img src="assets/prof-qtipo/ed-link.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="insertImage" aria-label="Inserir imagem"><img src="assets/prof-qtipo/ed-image.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="emoji" aria-label="Inserir emoji"><img src="assets/prof-qtipo/ed-smile.svg" width="24" height="24" alt="" /></button>
+                    <button type="button" data-cmd="insertHorizontalRule" aria-label="Mais inserções"><img src="assets/prof-qtipo/ed-insert-more.svg" width="24" height="24" alt="" /></button>
+                  </div>
+                </div>
+                <div class="qc-editor__group">
+                  <button type="button" data-cmd="undo" aria-label="Desfazer"><img src="assets/prof-qtipo/ed-undo.svg" width="24" height="24" alt="" /></button>
+                  <button type="button" data-cmd="redo" aria-label="Refazer"><img src="assets/prof-qtipo/ed-redo.svg" width="24" height="24" alt="" /></button>
+                  <button type="button" aria-label="Mais opções"><img src="assets/prof-qtipo/ed-more.svg" width="24" height="24" alt="" /></button>
+                </div>
+              </div>
+              <hr class="qc-editor__divider" />
+              <div class="qc-editor__content" id="enunciado" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="enunciado-label" data-placeholder="Digite o enunciado da questão"></div>
+            </div>
+            <p class="field__error" id="enunciado-error" hidden>Digite o enunciado da questão.</p>
+
+            <!-- Área específica do tipo (renderizada por JS) -->
+            <div class="qc-answer" id="qc-answer"></div>
+          </div>
+
+          <!-- Seções extras do tipo (ordenação, correlação, palavras cruzadas) -->
+          <div class="qc-extra" id="qc-extra"></div>
+
+          <!-- Acessibilidade -->
+          <div class="qc-block">
+            <div class="qc-block__head">
+              <h3 class="qc-block__title"><label for="acessibilidade">Acessibilidade da questão</label></h3>
+              <p class="qc-block__desc" id="acessibilidade-desc">Adicione formatos alternativos para tornar o conteúdo mais acessível a diferentes estudantes, como vídeos em Libras ou audiodescrição.</p>
+            </div>
+            <div class="qc-select">
+              <select id="acessibilidade" aria-describedby="acessibilidade-desc">
+                <option value="" selected>Selecione um tipo de formato</option>
+                <option value="libras">Vídeo em Libras</option>
+                <option value="audiodescricao">Audiodescrição</option>
+                <option value="texto-alternativo">Texto alternativo para imagens</option>
+              </select>
+              <img src="assets/prof-qtipo/arrow-down.svg" width="24" height="24" alt="" />
+            </div>
+          </div>
+
+          <!-- Fonte -->
+          <div class="qc-block">
+            <h3 class="qc-block__title"><label for="fonte">Fonte</label></h3>
+            <div class="qc-select">
+              <select id="fonte">
+                <option value="" selected>Selecione uma fonte</option>
+                <option value="autoral">Autoral</option>
+                <option value="enem">ENEM</option>
+                <option value="encceja">ENCCEJA</option>
+                <option value="livro">Livro didático</option>
+              </select>
+              <img src="assets/prof-qtipo/arrow-down.svg" width="24" height="24" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="qc-autosave" role="status">
+        <img src="assets/prof-qtipo/cloud-done.svg" width="24" height="24" alt="" />
+        <p id="autosave-text">Salvo automaticamente às 12:22 em 12/05/26 por Alice Souza</p>
+      </div>
+
+      <div class="qc-actions">
+        <a class="qc-cancel" href="questoes-criar-etapa-1.html">
+          CANCELAR
+        </a>
+        <div class="qc-actions__main">
+          <button class="btn qc-btn-outline" type="button" id="btn-draft">SALVAR RASCUNHO</button>
+          <button class="btn qc-btn-primary" type="submit" id="btn-create" aria-disabled="true">CRIAR QUESTÃO</button>
+        </div>
+      </div>
+      <p class="qc-form-msg" id="form-msg" role="alert" hidden></p>
+    </form>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="questao-criar-etapa-2.js"></script>
+</body>
+</html>

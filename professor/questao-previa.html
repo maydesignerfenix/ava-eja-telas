@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar questão · Prévia da questão · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="questao-previa.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container qp-page">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__parent"><a href="#">Questões e Atividades</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Criar questão</li>
+      </ol>
+    </nav>
+
+    <!-- Title -->
+    <div class="qp-title">
+      <div class="qp-title__text">
+        <h1>Criar questão</h1>
+        <p>Crie uma questão para o banco de questões</p>
+      </div>
+      <button class="btn qp-btn-outline" type="button" id="open-preview" aria-haspopup="dialog">VISUALIZAR PRÉVIA</button>
+    </div>
+
+    <!-- Summary cards -->
+    <section class="qp-summary" aria-labelledby="sum-config-title">
+      <div class="qp-summary__head">
+        <span class="qp-check" aria-hidden="true"><img src="assets/prof-qprev/check.svg" width="14" height="14" alt="" /></span>
+        <h2 class="qp-summary__title" id="sum-config-title">Configurações da questão</h2>
+      </div>
+      <dl class="qp-summary__fields">
+        <div class="qp-field">
+          <dt>Segmento / Etapa</dt>
+          <dd class="qp-field__value">EJA Regular - Ensino Médio</dd>
+        </div>
+        <div class="qp-field qp-field--skills">
+          <dt>Competência e Habilidades</dt>
+          <dd class="qp-badges">
+            <span class="qp-badge qp-badge--area">CN</span>
+            <span class="qp-badge-group">
+              <span class="qp-badge qp-badge--area">C2</span><span class="qp-badge qp-badge--skill">h1</span><span class="qp-badge qp-badge--skill">h4</span><span class="qp-badge qp-badge--skill">h6</span>
+            </span>
+          </dd>
+        </div>
+        <div class="qp-field">
+          <dt>Marcadores</dt>
+          <dd class="qp-badges qp-badges--tags">
+            <span class="qp-badge qp-badge--tag">TESTE</span>
+            <span class="qp-badge qp-badge--tag">para outubro</span>
+          </dd>
+        </div>
+      </dl>
+      <a class="qp-summary__toggle js-edit-link" href="questoes-criar-etapa-1.html" aria-label="Editar configurações da questão">
+        <img src="assets/prof-qprev/eti-arrow-down.svg" width="24" height="24" alt="" />
+      </a>
+    </section>
+
+    <section class="qp-summary" aria-labelledby="sum-content-title">
+      <div class="qp-summary__head">
+        <span class="qp-check" aria-hidden="true"><img src="assets/prof-qprev/check.svg" width="14" height="14" alt="" /></span>
+        <h2 class="qp-summary__title" id="sum-content-title">Conteúdo da questão</h2>
+      </div>
+      <dl class="qp-summary__fields">
+        <div class="qp-field">
+          <dt>Tipo de questão</dt>
+          <dd class="qp-type">
+            <span class="qp-iconbox qp-iconbox--30" aria-hidden="true"><img src="assets/prof-qprev/tipo-unica.svg" width="20" height="20" alt="" /></span>
+            <span id="sum-tipo">Única escolha</span>
+          </dd>
+        </div>
+        <div class="qp-field">
+          <dt>Formatos de acessibilidade</dt>
+          <dd class="qp-formats">
+            <span class="qp-iconbox qp-iconbox--30" title="Leitura em áudio"><img src="assets/prof-qprev/select-to-speak.svg" width="24" height="24" alt="Leitura em áudio" /></span>
+            <span class="qp-iconbox qp-iconbox--30" title="Audiodescrição"><img src="assets/prof-qprev/audio-description.svg" width="24" height="24" alt="Audiodescrição" /></span>
+            <span class="qp-iconbox qp-iconbox--30" title="Apresentação em vídeo"><img src="assets/prof-qprev/slideshow.svg" width="24" height="24" alt="Apresentação em vídeo" /></span>
+            <span class="qp-iconbox qp-iconbox--30" title="Vídeo Libras"><img src="assets/prof-qprev/sign-language.svg" width="24" height="24" alt="Vídeo Libras" /></span>
+          </dd>
+        </div>
+      </dl>
+      <a class="qp-summary__toggle js-edit-link" href="questao-criar-etapa-2.html" aria-label="Editar conteúdo da questão">
+        <img src="assets/prof-qprev/eti-arrow-down.svg" width="24" height="24" alt="" />
+      </a>
+    </section>
+
+    <!-- Bottom actions -->
+    <div class="qp-actions">
+      <a class="qp-cancel js-edit-link" href="questao-criar-etapa-2.html">
+        CANCELAR
+      </a>
+      <div class="qp-actions__right">
+        <button class="btn qp-btn-outline" type="button">SALVAR RASCUNHO</button>
+        <button class="btn btn--primary" type="button">CRIAR QUESTÃO</button>
+      </div>
+    </div>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <!-- Preview modal -->
+  <dialog class="qp-modal" id="preview" aria-labelledby="preview-title">
+    <div class="qp-modal__header">
+      <h2 id="preview-title">PRÉVIA DA QUESTÃO</h2>
+      <button class="qp-modal__close" type="button" id="close-preview" aria-label="Fechar prévia">
+        <img src="assets/prof-qprev/x-circle.svg" width="20" height="20" alt="" />
+      </button>
+    </div>
+
+    <div class="qp-modal__body" id="preview-body">
+      <div class="qp-main">
+        <div class="qp-activity">
+          <p class="qp-activity__label">Atividade</p>
+          <p class="qp-activity__title">Atividade de exemplo para prévia</p>
+        </div>
+
+        <form class="qp-question" id="question" novalidate>
+          <!-- rendered by questao-previa.js according to ?tipo= -->
+        </form>
+
+        <div class="qp-pager">
+          <button class="btn qp-btn-outline qp-pager__btn" type="button" disabled>ANTERIOR</button>
+          <p class="qp-pager__count">Questão 2/3</p>
+          <button class="btn btn--primary qp-pager__btn" type="button" disabled>PRÓXIMA</button>
+        </div>
+      </div>
+
+      <button class="qp-a11y-tab" type="button" id="a11y-open" aria-controls="a11y-panel" aria-expanded="false" aria-label="Abrir recursos de acessibilidade">
+        <img src="assets/prof-qprev/accessibility.svg" width="24" height="24" alt="" />
+      </button>
+
+      <!-- Accessibility resources panel -->
+      <aside class="qp-a11y" id="a11y-panel" aria-labelledby="a11y-title" hidden>
+        <div class="qp-a11y__head">
+          <img src="assets/prof-qprev/accessibility.svg" width="24" height="24" alt="" />
+          <h3 id="a11y-title">Recursos de acessibilidade</h3>
+          <button class="qp-a11y__close" type="button" id="a11y-close" aria-label="Fechar recursos de acessibilidade">
+            <img src="assets/prof-qprev/close-small.svg" width="24" height="24" alt="" />
+          </button>
+        </div>
+        <ul class="qp-a11y__list">
+          <li class="qp-res" data-res="leitura">
+            <button class="qp-res__toggle" type="button" aria-expanded="false" aria-controls="res-leitura">
+              <span class="qp-iconbox qp-iconbox--32" aria-hidden="true"><img src="assets/prof-qprev/select-to-speak.svg" width="24" height="24" alt="" /></span>
+              <span class="qp-res__label">Leitura em áudio</span>
+            </button>
+            <div class="qp-res__panel" id="res-leitura" hidden>
+              <div class="qp-audio" data-src="assets/prof-qprev/leitura.m4a" data-label="Leitura em áudio"></div>
+            </div>
+          </li>
+          <li class="qp-res" data-res="audiodescricao">
+            <button class="qp-res__toggle" type="button" aria-expanded="false" aria-controls="res-audiodescricao">
+              <span class="qp-iconbox qp-iconbox--32" aria-hidden="true"><img src="assets/prof-qprev/audio-description.svg" width="24" height="24" alt="" /></span>
+              <span class="qp-res__label">Audiodescrição</span>
+            </button>
+            <div class="qp-res__panel" id="res-audiodescricao" hidden>
+              <div class="qp-audio" data-src="assets/prof-qprev/audiodesc.m4a" data-label="Audiodescrição"></div>
+            </div>
+          </li>
+          <li class="qp-res" data-res="video">
+            <button class="qp-res__toggle" type="button" aria-expanded="false" aria-controls="res-video">
+              <span class="qp-iconbox qp-iconbox--32" aria-hidden="true"><img src="assets/prof-qprev/slideshow.svg" width="24" height="24" alt="" /></span>
+              <span class="qp-res__label">Apresentação em vídeo</span>
+            </button>
+            <div class="qp-res__panel" id="res-video" hidden>
+              <div class="qp-video">
+                <video controls preload="metadata" aria-label="Apresentação em vídeo da questão">
+                  <source src="assets/prof-qprev/leitura.m4a" type="audio/mp4" />
+                </video>
+              </div>
+            </div>
+          </li>
+          <li class="qp-res" data-res="libras">
+            <button class="qp-res__toggle" type="button" aria-expanded="false" aria-controls="res-libras">
+              <span class="qp-iconbox qp-iconbox--32" aria-hidden="true"><img src="assets/prof-qprev/sign-language.svg" width="24" height="24" alt="" /></span>
+              <span class="qp-res__label" data-short="Vídeo Libras" data-long="Vídeo Libras / Linguagem de Sinais">Vídeo Libras</span>
+            </button>
+            <div class="qp-res__panel" id="res-libras" hidden>
+              <div class="qp-video qp-video--poster">
+                <video preload="metadata" poster="assets/prof-qprev/libras-poster.png" aria-label="Vídeo em Libras da questão">
+                  <source src="assets/prof-qprev/leitura.m4a" type="audio/mp4" />
+                </video>
+                <button class="qp-video__play" type="button" aria-label="Reproduzir vídeo em Libras">
+                  <span><img src="assets/prof-qprev/play-arrow.svg" width="20" height="20" alt="" /></span>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </dialog>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="questao-previa.js"></script>
+</body>
+</html>

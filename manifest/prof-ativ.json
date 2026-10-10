@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Criar atividade · Etapa 1 Configurações",
+    "path": "professor/atividade-criar.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [
+      { "label": "Campos vazios", "query": "?etapa=1&state=vazio" },
+      { "label": "Campos preenchidos", "query": "?etapa=1&state=preenchido" },
+      { "label": "Erros de validação", "query": "?etapa=1&state=erro" }
+    ],
+    "figma": ["4148:55680", "4167:94036", "4148:56803", "4167:94349"]
+  },
+  {
+    "title": "Criar atividade · Etapa 2 Questões",
+    "path": "professor/atividade-criar.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [
+      { "label": "Nenhuma questão", "query": "?etapa=2&state=vazio" },
+      { "label": "Modal escolher questões", "query": "?etapa=2&state=modal" },
+      { "label": "Modal com 4 questões marcadas", "query": "?etapa=2&state=modal-selecionadas" },
+      { "label": "Questões adicionadas", "query": "?etapa=2&state=adicionadas" }
+    ],
+    "figma": ["4148:55789", "4167:94662", "4148:56917", "4167:94869", "4148:55982", "4167:95135"]
+  },
+  {
+    "title": "Criar atividade · Etapa 3 Agendamento",
+    "path": "professor/atividade-criar.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [
+      { "label": "Agendamento fechado", "query": "?etapa=3&state=fechado" },
+      { "label": "Agendamento aberto", "query": "?etapa=3&state=aberto" }
+    ],
+    "figma": ["4148:56231", "4167:95449", "4148:56479", "4167:95706"]
+  },
+  {
+    "title": "Prévia da atividade",
+    "path": "professor/atividade-previa.html",
+    "area": "Professor",
+    "flow": "Construir a base para atividades",
+    "states": [{ "label": "Atividade completa", "query": "" }],
+    "figma": ["4148:58505", "4167:96231"]
+  }
+]

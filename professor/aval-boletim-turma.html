@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boletim · Visão da turma · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="aval-common.css" />
+  <link rel="stylesheet" href="aval-boletim.css" />
+  <link rel="stylesheet" href="aval-boletim-turma.css" />
+</head>
+<body data-role="professor">
+  <div data-chrome="header"></div>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__parent"><a href="#">Avaliações</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Boletim</li>
+      </ol>
+    </nav>
+
+    <div class="aval-heading">
+      <h1>Boletim</h1>
+    </div>
+
+    <section class="bol" aria-labelledby="bol-title">
+      <div class="bol__intro">
+        <h2 id="bol-title">Avaliações por turma</h2>
+        <p>Consulte e faça o lançamento das avaliações da turma por competência</p>
+      </div>
+
+      <div class="bol-filters" role="search" aria-label="Filtros da turma">
+        <p class="bol-filters__label">Filtros</p>
+        <label class="bol-select bol-select--unidade">
+          <span class="visually-hidden">Unidade</span>
+          <select id="f-unidade"><option>SESI Ipiranga</option><option>SESI Vila Leopoldina</option></select>
+          <img src="assets/prof-aval/chevron-down-12.svg" width="12" height="12" alt="" />
+        </label>
+        <label class="bol-select bol-select--turma">
+          <span class="visually-hidden">Turma</span>
+          <select id="f-turma"><option>9º Ano B — Manhã</option><option>9º Ano A — Manhã</option><option>8º Ano B — Tarde</option></select>
+          <img src="assets/prof-aval/chevron-down-12.svg" width="12" height="12" alt="" />
+        </label>
+        <label class="bol-select bol-select--area">
+          <span class="visually-hidden">Área do conhecimento</span>
+          <select id="f-area"><option>Linguagens</option><option>Matemática</option><option>Ciências da Natureza</option><option>Ciências Humanas</option></select>
+          <img src="assets/prof-aval/chevron-down-12.svg" width="12" height="12" alt="" />
+        </label>
+        <label class="search">
+          <span class="visually-hidden">Buscar estudantes</span>
+          <img class="search__icon" src="../shared/assets/search.svg" width="18" height="18" alt="" />
+          <input id="search" type="search" placeholder="buscar estudantes" autocomplete="off" />
+        </label>
+        <button class="btn btn--outline-md" id="f-apply" type="button">
+          <img src="../shared/assets/filter-alt.svg" width="31.2" height="31.2" alt="" />
+          Filtrar
+        </button>
+      </div>
+
+      <ul class="bol-kpis" aria-label="Indicadores da turma">
+        <li class="bol-kpi"><p class="bol-kpi__label">MÉDIA DA TURMA</p><p class="bol-kpi__value" id="kpi-media">41</p><p class="bol-kpi__detail" id="kpi-media-detail">1 de 10 com avaliação completa</p></li>
+        <li class="bol-kpi"><p class="bol-kpi__label">EM PROCESSO</p><p class="bol-kpi__value bol-kpi__value--warn" id="kpi-processo">1</p><p class="bol-kpi__detail">abaixo de 60</p></li>
+        <li class="bol-kpi"><p class="bol-kpi__label">FALTA LANÇAR</p><p class="bol-kpi__value" id="kpi-falta">14</p><p class="bol-kpi__detail">competências x estudantes</p></li>
+        <li class="bol-kpi"><p class="bol-kpi__label">COMPETÊNCIAS CERTIFICADAS</p><p class="bol-kpi__value" id="kpi-cc">3</p><p class="bol-kpi__detail">CC pelo RDS</p></li>
+      </ul>
+
+      <div class="bol-switch">
+        <nav class="seg" aria-label="Modo do boletim">
+          <a class="seg__tab" href="aval-boletim-turma.html" aria-current="page">Visão da turma</a>
+          <a class="seg__tab" href="aval-boletim-lancar-notas.html">Lançar notas</a>
+        </nav>
+        <p class="bol-weights">Online <strong>40%</strong> + Presencial <strong>40%</strong> + Participação <strong>20%</strong></p>
+      </div>
+
+      <div class="bol-list-summary">
+        <p id="student-count" aria-live="polite">10 estudantes</p>
+        <button class="bol-help" id="help-toggle" type="button" aria-expanded="false" aria-controls="help">ⓘ Como usar</button>
+      </div>
+      <div class="bol-help-panel notice" id="help" hidden>
+        <div>
+          <p class="notice__title">Como usar</p>
+          <p class="notice__text">Cada coluna C1–C6 mostra a nota final da competência (notas abaixo de 60 aparecem em vermelho; “cc” indica competência certificada pelo RDS). Clique no título de uma coluna para ordenar e no status abaixo de cada competência para lançar as notas que faltam.</p>
+        </div>
+      </div>
+
+      <div class="bol-table grade-table" role="table" aria-label="Notas da turma por competência">
+        <div class="grade-head" role="row" id="grade-head"></div>
+        <div id="grade-body" role="rowgroup"></div>
+        <p class="bol-empty" id="empty" hidden>Nenhum estudante encontrado.</p>
+      </div>
+
+      <div class="bol-export">
+        <button class="btn-export" id="export" type="button">Exportar planilha</button>
+      </div>
+    </section>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="aval-boletim-data.js"></script>
+  <script src="aval-boletim-turma.js"></script>
+</body>
+</html>

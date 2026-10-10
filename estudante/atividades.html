@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atividades · Anos Finais - AF · AVA EJA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="est-acomp.css" />
+  <link rel="stylesheet" href="atividades.css" />
+</head>
+<body data-role="estudante">
+  <div data-chrome="header"></div>
+
+  <main class="container est-page">
+    <nav class="breadcrumb" aria-label="Você está em">
+      <ol>
+        <li><a href="#" aria-label="Início"><img src="../shared/assets/breadcrumb-home.svg" width="24" height="24" alt="" /></a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li><a href="#">Turmas</a></li>
+        <li class="breadcrumb__sep" aria-hidden="true"><img src="../shared/assets/breadcrumb-chevron.svg" width="12.375" height="7.125" alt="" /></li>
+        <li class="breadcrumb__current" aria-current="page">Anos Finais - AF</li>
+      </ol>
+    </nav>
+
+    <section class="class-header" aria-label="Turma">
+      <div class="class-header__titles">
+        <p class="class-header__title">Anos Finais - AF</p>
+        <p class="class-header__subtitle">EJA</p>
+      </div>
+      <div class="class-header__actions">
+        <a class="btn btn--outline-sm" href="boletim.html">Relatórios</a>
+        <button class="btn btn--outline-sm" type="button">Arquivos</button>
+        <button class="btn btn--outline-sm" type="button">Detalhes da turma</button>
+      </div>
+    </section>
+
+    <div class="banner" aria-hidden="true">
+      <div class="banner__circle">
+        <img class="banner__icon" src="../shared/assets/banner-eja.svg" width="346.122" height="335.864" alt="" />
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Seções da turma">
+      <a class="tab" href="#">Conteúdos</a>
+      <a class="tab" href="#">Mural</a>
+      <a class="tab is-active" href="atividades.html" aria-current="page">Atividades</a>
+    </nav>
+
+    <div class="est-heading">
+      <div class="est-heading__text">
+        <h1>Atividades</h1>
+        <p class="est-lead">Acompanhe seus envios e consulte as correções das suas atividades.</p>
+      </div>
+      <a class="btn btn--outline-sm" href="boletim.html">MEU BOLETIM</a>
+    </div>
+
+    <aside class="notice" aria-label="Orientação">
+      <img class="notice__icon" src="assets/est-acomp/info.svg" width="20" height="20" alt="" />
+      <div class="notice__body">
+        <p class="notice__title">Enviou uma atividade?</p>
+        <p class="notice__text">Ela ficará em correção. Quando a devolutiva estiver disponível, você poderá ver a correção aqui e a nota no seu boletim.</p>
+      </div>
+    </aside>
+
+    <form class="filters card card--subtle" id="filters" aria-labelledby="filters-title" onsubmit="return false">
+      <h2 class="est-strong" id="filters-title">Filtrar</h2>
+      <div class="filters__fields">
+        <label class="field">
+          <span class="field__label">Área de conhecimento</span>
+          <span class="select">
+            <select id="filter-area" name="area">
+              <option value="" selected>Todas as áreas</option>
+              <option value="Linguagens">Linguagens</option>
+              <option value="Matemática">Matemática</option>
+              <option value="Ciências da Natureza">Ciências da Natureza</option>
+              <option value="Ciências Humanas">Ciências Humanas</option>
+            </select>
+            <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+          </span>
+        </label>
+        <label class="field">
+          <span class="field__label">Status</span>
+          <span class="select">
+            <select id="filter-status" name="status">
+              <option value="" selected>Todos os status</option>
+              <option value="corrigido">Corrigido</option>
+              <option value="em-correcao">Em correção</option>
+              <option value="nao-iniciada">Não iniciada</option>
+            </select>
+            <img src="../shared/assets/mobile-select-arrow.svg" width="24" height="24" alt="" />
+          </span>
+        </label>
+      </div>
+    </form>
+
+    <section class="activities" aria-labelledby="activities-count">
+      <div class="summary">
+        <div class="summary__count">
+          <h2 class="est-strong" id="activities-count" aria-live="polite">4 atividades</h2>
+          <p class="est-small" id="activities-breakdown">2 corrigidas · 1 em correção · 1 não iniciada</p>
+        </div>
+        <label class="search summary__search">
+          <span class="visually-hidden">Buscar atividade</span>
+          <img class="search__icon" src="assets/est-acomp/search-circle.svg" width="15.9999" height="15.9999" alt="" />
+          <input id="search" type="search" placeholder="Buscar atividade" autocomplete="off" />
+        </label>
+      </div>
+
+      <ul class="student-activities" id="activity-list"></ul>
+      <p class="empty-state est-small" id="empty-state" hidden>Nenhuma atividade encontrada com os filtros selecionados.</p>
+    </section>
+
+    <p class="est-small" id="showing">Mostrando 4 de 4 atividades · Dados demonstrativos</p>
+  </main>
+
+  <div data-chrome="footer"></div>
+
+  <script src="../shared/chrome.js"></script>
+  <script src="atividades.js"></script>
+</body>
+</html>
